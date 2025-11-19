@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Percentage Calculator | Online Tools Hub</title>
+  <meta name="description" content="Simple percentage calculator for discounts, percentage change and more.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+ <!-- Header -->
+ <header class="w-full border-b bg-white">
+  <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+    <a href="/index.html" class="font-semibold text-lg">
+      Online<span class="text-blue-600">Tools</span>Hub
+    </a>
+
+    <nav class="flex gap-4 text-sm">
+      <a href="/index.html" class="hover:text-blue-600">Home</a>
+    </nav>
+  </div>
+</header>
+
+  <main class="max-w-2xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-semibold mb-2">Percentage Calculator</h1>
+    <p class="text-sm text-slate-600 mb-4">
+      Quick percentage tools for marks, discounts and percentage change.
+    </p>
+
+    <!-- Ad -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="bg-white rounded-lg shadow p-4 mb-6 space-y-5 text-sm">
+
+      <!-- 1) X% of Y -->
+      <div>
+        <h2 class="font-semibold mb-2 text-sm">1. Find X% of Y</h2>
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+          <input id="pctX" type="number" placeholder="X %" class="border rounded px-3 py-2 w-full sm:w-1/3 text-sm">
+          <span class="hidden sm:inline text-xs text-slate-500">of</span>
+          <input id="pctY" type="number" placeholder="Y value" class="border rounded px-3 py-2 w-full sm:w-1/3 text-sm">
+        </div>
+        <button id="pctOfBtn" class="mt-2 bg-blue-600 text-white text-xs px-3 py-1.5 rounded hover:bg-blue-700">
+          Calculate
+        </button>
+        <div id="pctOfResult" class="mt-2 text-xs font-medium"></div>
+      </div>
+
+      <hr class="border-dashed">
+
+      <!-- 2) What % is X of Y -->
+      <div>
+        <h2 class="font-semibold mb-2 text-sm">2. What percentage is X of Y?</h2>
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+          <input id="whatX" type="number" placeholder="X" class="border rounded px-3 py-2 w-full sm:w-1/3 text-sm">
+          <span class="hidden sm:inline text-xs text-slate-500">of</span>
+          <input id="whatY" type="number" placeholder="Y" class="border rounded px-3 py-2 w-full sm:w-1/3 text-sm">
+        </div>
+        <button id="whatPctBtn" class="mt-2 bg-blue-600 text-white text-xs px-3 py-1.5 rounded hover:bg-blue-700">
+          Calculate
+        </button>
+        <div id="whatPctResult" class="mt-2 text-xs font-medium"></div>
+      </div>
+
+      <hr class="border-dashed">
+
+      <!-- 3) Percentage change -->
+      <div>
+        <h2 class="font-semibold mb-2 text-sm">3. Percentage increase / decrease</h2>
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+          <input id="oldVal" type="number" placeholder="Old value" class="border rounded px-3 py-2 w-full sm:w-1/3 text-sm">
+          <span class="hidden sm:inline text-xs text-slate-500">to</span>
+          <input id="newVal" type="number" placeholder="New value" class="border rounded px-3 py-2 w-full sm:w-1/3 text-sm">
+        </div>
+        <button id="changeBtn" class="mt-2 bg-blue-600 text-white text-xs px-3 py-1.5 rounded hover:bg-blue-700">
+          Calculate
+        </button>
+        <div id="changeResult" class="mt-2 text-xs font-medium"></div>
+      </div>
+    </section>
+
+    <!-- Ad -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="mt-8">
+      <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <a href="/calculators/gst-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">GST Calculator</a>
+        <a href="/calculators/loan-emi-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">EMI Calculator</a>
+        <a href="/calculators/age-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Age Calculator</a>
+        <a href="/index.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Home</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t mt-10">
+    <div class="max-w-4xl mx-auto px-4 py-4 text-xs text-slate-500 flex justify-between">
+      <span>© <span id="year"></span> OnlineToolsHub.in</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // X% of Y
+    document.getElementById('pctOfBtn').addEventListener('click', () => {
+      const x = parseFloat(document.getElementById('pctX').value);
+      const y = parseFloat(document.getElementById('pctY').value);
+      const res = document.getElementById('pctOfResult');
+
+      if (!x || !y) {
+        res.textContent = 'Enter both X and Y.';
+        return;
+      }
+
+      const val = (x / 100) * y;
+      res.textContent = `${x}% of ${y} is ${val.toFixed(2)}.`;
+    });
+
+    // What % is X of Y
+    document.getElementById('whatPctBtn').addEventListener('click', () => {
+      const x = parseFloat(document.getElementById('whatX').value);
+      const y = parseFloat(document.getElementById('whatY').value);
+      const res = document.getElementById('whatPctResult');
+
+      if (!x || !y) {
+        res.textContent = 'Enter both X and Y.';
+        return;
+      }
+
+      const pct = (x / y) * 100;
+      res.textContent = `${x} is ${pct.toFixed(2)}% of ${y}.`;
+    });
+
+    // Percentage change
+    document.getElementById('changeBtn').addEventListener('click', () => {
+      const oldVal = parseFloat(document.getElementById('oldVal').value);
+      const newVal = parseFloat(document.getElementById('newVal').value);
+      const res = document.getElementById('changeResult');
+
+      if (!oldVal || !newVal) {
+        res.textContent = 'Enter both old and new values.';
+        return;
+      }
+
+      const diff = newVal - oldVal;
+      const pct = (diff / oldVal) * 100;
+      const direction = diff > 0 ? 'increase' : (diff < 0 ? 'decrease' : 'no change');
+
+      res.textContent = `There is a ${direction} of ${Math.abs(pct).toFixed(2)}%.`;
+    });
+  </script>
+
+</body>
+</html>

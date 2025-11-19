@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RD Calculator | Online Tools Hub</title>
+  <meta name="description" content="Recurring Deposit calculator to estimate maturity amount and interest earned.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+ <!-- Header -->
+ <header class="w-full border-b bg-white">
+  <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+    <a href="/index.html" class="font-semibold text-lg">
+      Online<span class="text-blue-600">Tools</span>Hub
+    </a>
+
+    <nav class="flex gap-4 text-sm">
+      <a href="/index.html" class="hover:text-blue-600">Home</a>
+    </nav>
+  </div>
+</header>
+
+  <main class="max-w-2xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-semibold mb-2">RD Calculator</h1>
+    <p class="text-sm text-slate-600 mb-4">
+      Calculate maturity amount for your Recurring Deposit (monthly investment).
+    </p>
+
+    <!-- Ad -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="bg-white rounded-lg shadow p-4 mb-6 space-y-3">
+      <div>
+        <label class="block text-sm mb-1">Monthly deposit (₹)</label>
+        <input id="rdMonthly" type="number" class="border rounded px-3 py-2 w-full text-sm">
+      </div>
+
+      <div>
+        <label class="block text-sm mb-1">Interest rate (% per year)</label>
+        <input id="rdRate" type="number" step="0.01" class="border rounded px-3 py-2 w-full text-sm">
+      </div>
+
+      <div>
+        <label class="block text-sm mb-1">Tenure (years)</label>
+        <input id="rdYears" type="number" class="border rounded px-3 py-2 w-full text-sm">
+      </div>
+
+      <button id="rdBtn"
+        class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
+        Calculate RD
+      </button>
+
+      <div id="rdResult" class="mt-4 text-sm font-medium space-y-1"></div>
+    </section>
+
+    <!-- Ad -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="mt-8">
+      <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <a href="/calculators/fd-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">FD Calculator</a>
+        <a href="/calculators/sip-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">SIP Calculator</a>
+        <a href="/calculators/loan-emi-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">EMI Calculator</a>
+        <a href="/index.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Home</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t mt-10">
+    <div class="max-w-4xl mx-auto px-4 py-4 text-xs text-slate-500 flex justify-between">
+      <span>© <span id="year"></span> OnlineToolsHub.in</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function formatMoney(num) {
+      return Number(num).toLocaleString('en-IN', {
+        maximumFractionDigits: 0
+      });
+    }
+
+    document.getElementById('rdBtn').addEventListener('click', () => {
+      const P = parseFloat(document.getElementById('rdMonthly').value);
+      const R = parseFloat(document.getElementById('rdRate').value);
+      const Y = parseFloat(document.getElementById('rdYears').value);
+      const res = document.getElementById('rdResult');
+
+      if (!P || !R || !Y) {
+        res.textContent = 'Please fill all fields.';
+        return;
+      }
+
+      const r = R / 100 / 12;    // monthly
+      const n = Y * 12;          // months
+
+      // RD maturity formula (similar to SIP formula without extra (1+r) at end in some banks,
+      // but SIP style is commonly used; we'll use SIP-style for consistency)
+      const maturity = P * (((1 + r) ** n - 1) / r) * (1 + r);
+      const invested = P * n;
+      const interest = maturity - invested;
+
+      res.innerHTML = `
+        <div>Maturity amount: <span class="font-semibold">₹${formatMoney(maturity)}</span></div>
+        <div>Total amount invested: <span class="font-semibold">₹${formatMoney(invested)}</span></div>
+        <div>Interest earned: <span class="font-semibold">₹${formatMoney(interest)}</span></div>
+      `;
+    });
+  </script>
+
+</body>
+</html>

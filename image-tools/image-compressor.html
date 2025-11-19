@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Compressor | Online Tools Hub</title>
+  <meta name="description" content="Compress JPG and PNG images in your browser by reducing quality. No upload required.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+  <!-- Header -->
+  <header class="w-full border-b bg-white">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="/index.html" class="font-semibold text-lg">
+        Online<span class="text-blue-600">Tools</span>Hub
+      </a>
+  
+      <nav class="flex gap-4 text-sm">
+        <a href="/index.html" class="hover:text-blue-600">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-semibold mb-2">Image Compressor</h1>
+    <p class="text-sm text-slate-600 mb-4">
+      Compress JPG or PNG images directly in your browser by reducing quality. Your image does not leave your device.
+    </p>
+
+    <!-- Top ad -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="bg-white rounded-lg shadow p-4 mb-6 text-sm">
+      <label class="block mb-2 font-medium">Select an image (JPG or PNG)</label>
+      <input
+        id="imgInput"
+        type="file"
+        accept="image/jpeg,image/png"
+        class="block w-full text-xs text-slate-600 border rounded px-3 py-2 mb-3">
+
+      <div class="mb-3 grid gap-3 sm:grid-cols-2 text-xs">
+        <div>
+          <label class="block mb-1 font-medium">Quality</label>
+          <input id="qualityRange" type="range" min="20" max="100" value="70" class="w-full">
+          <div class="flex justify-between mt-1">
+            <span id="qualityLabel">70%</span>
+            <span class="text-slate-400">Lower = smaller size</span>
+          </div>
+        </div>
+        <div>
+          <label class="block mb-1 font-medium">Output format</label>
+          <select id="outFormat" class="border rounded px-3 py-2 w-full">
+            <option value="image/jpeg">JPEG</option>
+            <option value="image/webp">WebP</option>
+          </select>
+        </div>
+      </div>
+
+      <button
+        id="compressBtn"
+        class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+        disabled>
+        Compress image
+      </button>
+
+      <div id="sizes" class="mt-3 text-[11px] text-slate-500"></div>
+
+      <div id="result" class="mt-4 hidden">
+        <h2 class="text-xs font-semibold mb-2">Compressed preview</h2>
+        <img id="preview" alt="Compressed" class="max-w-full max-h-80 border rounded mb-2">
+        <div class="flex flex-wrap gap-2 text-xs">
+          <a id="downloadLink"
+             href="#"
+             download="compressed-image.jpg"
+             class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200 inline-block">
+            Download compressed image
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom ad -->
+    <div class="w-full mt-6 mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="mt-6">
+      <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <a href="/image-tools/image-resizer.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Image Resizer</a>
+        <a href="/image-tools/image-format-converter.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Image Format Converter</a>
+        <a href="/pdf-tools/image-to-pdf.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Image to PDF</a>
+        <a href="/index.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Home</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t mt-10">
+    <div class="max-w-4xl mx-auto px-4 py-4 text-xs text-slate-500 flex justify-between">
+      <span>© <span id="year"></span> OnlineToolsHub.in</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const imgInput = document.getElementById('imgInput');
+    const compressBtn = document.getElementById('compressBtn');
+    const qualityRange = document.getElementById('qualityRange');
+    const qualityLabel = document.getElementById('qualityLabel');
+    const outFormat = document.getElementById('outFormat');
+    const sizesEl = document.getElementById('sizes');
+    const resultSection = document.getElementById('result');
+    const preview = document.getElementById('preview');
+    const downloadLink = document.getElementById('downloadLink');
+
+    let originalFile = null;
+    let originalDataUrl = null;
+
+    qualityRange.addEventListener('input', () => {
+      qualityLabel.textContent = qualityRange.value + '%';
+    });
+
+    imgInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      originalFile = null;
+      originalDataUrl = null;
+      sizesEl.textContent = '';
+      resultSection.classList.add('hidden');
+      compressBtn.disabled = true;
+
+      if (!file) return;
+      if (!file.type.startsWith('image/')) {
+        sizesEl.textContent = 'Please select a valid image file.';
+        return;
+      }
+
+      originalFile = file;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        originalDataUrl = ev.target.result;
+        sizesEl.textContent = `Original size: ${Math.round(file.size / 1024)} KB`;
+        compressBtn.disabled = false;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    compressBtn.addEventListener('click', () => {
+      if (!originalDataUrl) return;
+
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+
+        const quality = parseInt(qualityRange.value, 10) / 100;
+        const format = outFormat.value;
+
+        canvas.toBlob((blob) => {
+          if (!blob) return;
+          const url = URL.createObjectURL(blob);
+          preview.src = url;
+          resultSection.classList.remove('hidden');
+
+          const ext = format === 'image/webp' ? 'webp' : 'jpg';
+          downloadLink.href = url;
+          downloadLink.download = `compressed-image.${ext}`;
+
+          const origKB = originalFile ? Math.round(originalFile.size / 1024) : 0;
+          const newKB = Math.round(blob.size / 1024);
+          sizesEl.textContent = `Original size: ${origKB} KB | Compressed size: ${newKB} KB`;
+        }, format, quality);
+      };
+      img.src = originalDataUrl;
+    });
+  </script>
+</body>
+</html>

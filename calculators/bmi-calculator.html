@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BMI Calculator | Online Tools Hub</title>
+  <meta name="description" content="Check your Body Mass Index using this simple BMI Calculator.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+
+  <!-- Header -->
+  <header class="w-full border-b bg-white">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="/index.html" class="font-semibold text-lg">
+        Online<span class="text-blue-600">Tools</span>Hub
+      </a>
+  
+      <nav class="flex gap-4 text-sm">
+        <a href="/index.html" class="hover:text-blue-600">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-2xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-semibold mb-2">BMI Calculator</h1>
+    <p class="text-sm text-slate-600 mb-4">
+      Enter your height and weight to check your Body Mass Index.
+    </p>
+
+    <!-- Ad -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="bg-white rounded-lg shadow p-4 mb-6">
+      <label class="block text-sm mb-1">Weight (kg)</label>
+      <input id="weight" type="number" class="border rounded px-3 py-2 w-full mb-3 text-sm">
+
+      <label class="block text-sm mb-1">Height (cm)</label>
+      <input id="height" type="number" class="border rounded px-3 py-2 w-full mb-3 text-sm">
+
+      <button id="bmiBtn"
+        class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
+        Calculate BMI
+      </button>
+
+      <div id="bmiResult" class="mt-4 text-sm font-medium"></div>
+    </section>
+
+    <!-- Ad -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <!-- Related -->
+    <section class="mt-8">
+      <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <a href="/" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Home</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t mt-10">
+    <div class="max-w-4xl mx-auto px-4 py-4 text-xs text-slate-500 flex justify-between">
+      <span>© <span id="year"></span> OnlineToolsHub.in</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const btn = document.getElementById("bmiBtn");
+    const result = document.getElementById("bmiResult");
+
+    btn.addEventListener("click", () => {
+      const weight = parseFloat(document.getElementById("weight").value);
+      const height = parseFloat(document.getElementById("height").value);
+
+      if (!weight || !height) {
+        result.textContent = "Please enter valid height and weight.";
+        return;
+      }
+
+      const hMeters = height / 100;
+      const bmi = (weight / (hMeters * hMeters)).toFixed(2);
+
+      let status = "";
+      if (bmi < 18.5) status = "Underweight";
+      else if (bmi < 24.9) status = "Normal weight";
+      else if (bmi < 29.9) status = "Overweight";
+      else status = "Obese";
+
+      result.textContent = `Your BMI is ${bmi} (${status}).`;
+    });
+  </script>
+
+</body>
+</html>

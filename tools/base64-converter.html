@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Base64 Encoder & Decoder | Online Tools Hub</title>
+  <meta name="description" content="Encode and decode Base64 online. Convert text to Base64 and Base64 to text easily.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <!-- Header -->
+  <header class="w-full border-b bg-white">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="/index.html" class="font-semibold text-lg">
+        Online<span class="text-blue-600">Tools</span>Hub
+      </a>
+  
+      <nav class="flex gap-4 text-sm">
+        <a href="/index.html" class="hover:text-blue-600">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="max-w-5xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-semibold mb-2">Base64 Encoder & Decoder</h1>
+    <p class="text-sm text-slate-600 mb-4">
+      Convert text to Base64 and Base64 back to normal text. Useful for developers, debugging and quick encoding.
+    </p>
+
+    <!-- Top ad -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="grid gap-4 md:grid-cols-2">
+      <!-- Left: Input -->
+      <div class="bg-white rounded-lg shadow p-4">
+        <h2 class="text-sm font-semibold mb-2">Input</h2>
+        <textarea id="b64Input"
+          class="w-full h-72 border rounded px-3 py-2 text-xs font-mono focus:outline-none focus:ring"
+          placeholder="Enter your text or Base64 string here..."></textarea>
+
+        <div class="mt-3 flex flex-wrap gap-2 text-xs">
+          <button id="b64Encode" class="px-3 py-1.5 rounded bg-blue-600 text-white hover:bg-blue-700">
+            Encode to Base64
+          </button>
+          <button id="b64Decode" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">
+            Decode from Base64
+          </button>
+          <button id="b64Clear" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">
+            Clear
+          </button>
+        </div>
+
+        <div id="b64Status" class="mt-3 text-[11px]"></div>
+      </div>
+
+      <!-- Right: Output -->
+      <div class="bg-white rounded-lg shadow p-4">
+        <h2 class="text-sm font-semibold mb-2">Output</h2>
+        <textarea id="b64Output"
+          class="w-full h-72 border rounded px-3 py-2 text-xs font-mono focus:outline-none focus:ring"
+          readonly></textarea>
+
+        <div class="mt-3 flex flex-wrap gap-2 text-xs">
+          <button id="b64Copy" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">
+            Copy output
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom ad -->
+    <div class="w-full mt-6 mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <!-- Related tools -->
+    <section class="mt-6">
+      <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <a href="/tools/json-formatter.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">JSON Formatter</a>
+        <a href="/tools/url-encoder-decoder.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">URL Encoder / Decoder</a>
+        <a href="/tools/word-counter.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Word Counter</a>
+        <a href="/index.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Home</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t mt-10">
+    <div class="max-w-5xl mx-auto px-4 py-4 text-xs text-slate-500 flex justify-between">
+      <span>© <span id="year"></span> OnlineToolsHub.in</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const b64Input = document.getElementById('b64Input');
+    const b64Output = document.getElementById('b64Output');
+    const b64Status = document.getElementById('b64Status');
+
+    function setB64Status(ok, msg) {
+      b64Status.textContent = msg || '';
+      b64Status.className = "mt-3 text-[11px] " + (ok ? "text-green-600" : "text-red-600");
+    }
+
+    function textToBase64(str) {
+      const utf8 = new TextEncoder().encode(str);
+      let binary = "";
+      utf8.forEach(b => binary += String.fromCharCode(b));
+      return btoa(binary);
+    }
+
+    function base64ToText(str) {
+      const binary = atob(str);
+      const len = binary.length;
+      const bytes = new Uint8Array(len);
+      for (let i = 0; i < len; i++) {
+        bytes[i] = binary.charCodeAt(i);
+      }
+      return new TextDecoder().decode(bytes);
+    }
+
+    document.getElementById('b64Encode').addEventListener('click', () => {
+      const val = b64Input.value;
+      if (!val) {
+        setB64Status(false, "Please enter some text to encode.");
+        b64Output.value = "";
+        return;
+      }
+      try {
+        const enc = textToBase64(val);
+        b64Output.value = enc;
+        setB64Status(true, "Encoded successfully.");
+      } catch (e) {
+        setB64Status(false, "Encoding error: " + e.message);
+      }
+    });
+
+    document.getElementById('b64Decode').addEventListener('click', () => {
+      const val = b64Input.value.trim();
+      if (!val) {
+        setB64Status(false, "Please enter Base64 text to decode.");
+        b64Output.value = "";
+        return;
+      }
+      try {
+        const dec = base64ToText(val);
+        b64Output.value = dec;
+        setB64Status(true, "Decoded successfully.");
+      } catch (e) {
+        setB64Status(false, "Decoding error: " + e.message);
+        b64Output.value = "";
+      }
+    });
+
+    document.getElementById('b64Clear').addEventListener('click', () => {
+      b64Input.value = "";
+      b64Output.value = "";
+      setB64Status(false, "");
+    });
+
+    document.getElementById('b64Copy').addEventListener('click', () => {
+      if (!b64Output.value) return;
+      b64Output.select();
+      document.execCommand('copy');
+      setB64Status(true, "Output copied to clipboard.");
+    });
+  </script>
+</body>
+</html>

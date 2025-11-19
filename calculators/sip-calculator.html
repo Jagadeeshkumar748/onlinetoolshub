@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SIP Calculator | Online Tools Hub</title>
+  <meta name="description" content="Calculate SIP returns using monthly investment, expected return rate and time period.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+
+  <!-- Header -->
+  <header class="w-full border-b bg-white">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="/index.html" class="font-semibold text-lg">
+        Online<span class="text-blue-600">Tools</span>Hub
+      </a>
+  
+      <nav class="flex gap-4 text-sm">
+        <a href="/index.html" class="hover:text-blue-600">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-2xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-semibold mb-2">SIP Calculator</h1>
+    <p class="text-sm text-slate-600 mb-4">
+      Estimate future value of your SIP investment.
+    </p>
+
+    <!-- Ad -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="bg-white rounded-lg shadow p-4 mb-6">
+
+      <label class="block text-sm mb-1">Monthly Investment (₹)</label>
+      <input id="monthly" type="number" class="border rounded px-3 py-2 w-full mb-3 text-sm">
+
+      <label class="block text-sm mb-1">Expected Return (% per year)</label>
+      <input id="rate" type="number" class="border rounded px-3 py-2 w-full mb-3 text-sm">
+
+      <label class="block text-sm mb-1">Time Period (years)</label>
+      <input id="years" type="number" class="border rounded px-3 py-2 w-full mb-3 text-sm">
+
+      <button id="sipBtn"
+        class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
+        Calculate SIP
+      </button>
+
+      <div id="sipResult" class="mt-4 text-sm font-medium"></div>
+
+    </section>
+
+    <!-- Ad -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="mt-8">
+      <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <a href="/" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Home</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t mt-10">
+    <div class="max-w-4xl mx-auto px-4 py-4 text-xs text-slate-500 flex justify-between">
+      <span>© <span id="year"></span> OnlineToolsHub.in</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const sipBtn = document.getElementById("sipBtn");
+    const sipRes = document.getElementById("sipResult");
+
+    sipBtn.addEventListener("click", () => {
+      const P = parseFloat(document.getElementById("monthly").value);
+      const R = parseFloat(document.getElementById("rate").value);
+      const Y = parseFloat(document.getElementById("years").value);
+
+      if (!P || !R || !Y) {
+        sipRes.textContent = "Please fill all fields.";
+        return;
+      }
+
+      const r = R / 100 / 12;
+      const n = Y * 12;
+
+      const fv = (P * (((1 + r) ** n - 1) / r) * (1 + r)).toFixed(0);
+      const invested = (P * n).toFixed(0);
+      const gain = (fv - invested).toFixed(0);
+
+      sipRes.innerHTML = `
+        <div>Total Value: ₹${fv}</div>
+        <div>Invested: ₹${invested}</div>
+        <div>Estimated Gain: ₹${gain}</div>
+      `;
+    });
+  </script>
+
+</body>
+</html>

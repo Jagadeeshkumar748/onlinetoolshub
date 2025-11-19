@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Format Converter | Online Tools Hub</title>
+  <meta name="description" content="Convert images between JPG, PNG and WebP directly in your browser.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+ <!-- Header -->
+ <header class="w-full border-b bg-white">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="/index.html" class="font-semibold text-lg">
+        Online<span class="text-blue-600">Tools</span>Hub
+      </a>
+  
+      <nav class="flex gap-4 text-sm">
+        <a href="/index.html" class="hover:text-blue-600">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-semibold mb-2">Image Format Converter</h1>
+    <p class="text-sm text-slate-600 mb-4">
+      Convert images between JPG, PNG and WebP formats directly in your browser. No upload to server.
+    </p>
+
+    <!-- Top ad -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="bg-white rounded-lg shadow p-4 mb-6 text-sm">
+      <label class="block mb-2 font-medium">Select an image</label>
+      <input
+        id="convImgInput"
+        type="file"
+        accept="image/jpeg,image/png,image/webp"
+        class="block w-full text-xs text-slate-600 border rounded px-3 py-2 mb-3">
+
+      <div id="convInfo" class="text-[11px] text-slate-500 mb-3"></div>
+
+      <div class="grid gap-3 sm:grid-cols-2 text-xs mb-3">
+        <div>
+          <label class="block mb-1 font-medium">Output format</label>
+          <select id="convFormat" class="border rounded px-3 py-2 w-full">
+            <option value="image/jpeg">JPEG (.jpg)</option>
+            <option value="image/png">PNG (.png)</option>
+            <option value="image/webp">WebP (.webp)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block mb-1 font-medium">Quality (for JPEG/WebP)</label>
+          <input id="convQuality" type="range" min="50" max="100" value="90" class="w-full">
+          <div class="flex justify-between mt-1">
+            <span id="convQualityLabel">90%</span>
+            <span class="text-slate-400">PNG ignores quality</span>
+          </div>
+        </div>
+      </div>
+
+      <button
+        id="convBtn"
+        class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+        disabled>
+        Convert image
+      </button>
+
+      <div id="convStatus" class="mt-3 text-[11px] text-slate-500"></div>
+
+      <div id="convResult" class="mt-4 hidden">
+        <h2 class="text-xs font-semibold mb-2">Converted preview</h2>
+        <img id="convPreview" alt="Converted" class="max-w-full max-h-80 border rounded mb-2">
+        <div class="flex flex-wrap gap-2 text-xs">
+          <a id="convDownload"
+             href="#"
+             download="converted-image.jpg"
+             class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200 inline-block">
+            Download converted image
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom ad -->
+    <div class="w-full mt-6 mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="mt-6">
+      <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <a href="/image-tools/image-compressor.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Image Compressor</a>
+        <a href="/image-tools/image-resizer.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Image Resizer</a>
+        <a href="/pdf-tools/image-to-pdf.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Image to PDF</a>
+        <a href="/index.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Home</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t mt-10">
+    <div class="max-w-4xl mx-auto px-4 py-4 text-xs text-slate-500 flex justify-between">
+      <span>© <span id="year"></span> OnlineToolsHub.in</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const convImgInput = document.getElementById('convImgInput');
+    const convInfo = document.getElementById('convInfo');
+    const convFormat = document.getElementById('convFormat');
+    const convQuality = document.getElementById('convQuality');
+    const convQualityLabel = document.getElementById('convQualityLabel');
+    const convBtn = document.getElementById('convBtn');
+    const convStatus = document.getElementById('convStatus');
+    const convResult = document.getElementById('convResult');
+    const convPreview = document.getElementById('convPreview');
+    const convDownload = document.getElementById('convDownload');
+
+    let convImg = null;
+    let convDataUrl = null;
+    let convOrigType = '';
+
+    convQuality.addEventListener('input', () => {
+      convQualityLabel.textContent = convQuality.value + '%';
+    });
+
+    convImgInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      convImg = null;
+      convDataUrl = null;
+      convOrigType = '';
+      convInfo.textContent = '';
+      convStatus.textContent = '';
+      convResult.classList.add('hidden');
+      convBtn.disabled = true;
+
+      if (!file) return;
+      if (!file.type.startsWith('image/')) {
+        convInfo.textContent = 'Please select a valid image file.';
+        return;
+      }
+
+      convOrigType = file.type;
+
+      const img = new Image();
+      img.onload = () => {
+        convImg = img;
+        convInfo.textContent = `Original: ${file.type}, ${img.width} × ${img.height}px (${Math.round(file.size / 1024)} KB)`;
+        convBtn.disabled = false;
+      };
+
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        convDataUrl = ev.target.result;
+        img.src = convDataUrl;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    convBtn.addEventListener('click', () => {
+      if (!convImg || !convDataUrl) return;
+
+      const canvas = document.createElement('canvas');
+      canvas.width = convImg.width;
+      canvas.height = convImg.height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(convImg, 0, 0);
+
+      const format = convFormat.value;
+      let quality = parseInt(convQuality.value, 10) / 100;
+      if (format === 'image/png') {
+        quality = 1.0; // PNG ignores quality
+      }
+
+      canvas.toBlob((blob) => {
+        if (!blob) return;
+        const url = URL.createObjectURL(blob);
+        convPreview.src = url;
+        convResult.classList.remove('hidden');
+
+        let ext = 'jpg';
+        if (format === 'image/png') ext = 'png';
+        if (format === 'image/webp') ext = 'webp';
+        convDownload.href = url;
+        convDownload.download = `converted-image.${ext}`;
+
+        convStatus.textContent =
+          `Converted from ${convOrigType} to ${format} (${Math.round(blob.size / 1024)} KB).`;
+      }, format, quality);
+    });
+  </script>
+</body>
+</html>

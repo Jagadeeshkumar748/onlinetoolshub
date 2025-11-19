@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pregnancy Due Date Calculator | Online Tools Hub</title>
+  <meta name="description" content="Estimate your pregnancy due date based on the first day of your last period.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+  <!-- Header -->
+  <header class="w-full border-b bg-white">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="/index.html" class="font-semibold text-lg">
+        Online<span class="text-blue-600">Tools</span>Hub
+      </a>
+  
+      <nav class="flex gap-4 text-sm">
+        <a href="/index.html" class="hover:text-blue-600">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="max-w-2xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-semibold mb-2">Pregnancy Due Date Calculator</h1>
+    <p class="text-sm text-slate-600 mb-4">
+      Estimate your expected due date based on the first day of your last menstrual period (LMP).
+      This is only an estimate, actual dates may vary.
+    </p>
+
+    <!-- Ad -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="bg-white rounded-lg shadow p-4 mb-6">
+      <label for="lmp" class="block text-sm mb-1">First day of your last period (LMP)</label>
+      <input id="lmp" type="date" class="border rounded px-3 py-2 w-full mb-3 text-sm">
+
+      <button id="dueBtn"
+        class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
+        Calculate due date
+      </button>
+
+      <div id="dueResult" class="mt-4 text-sm font-medium space-y-1"></div>
+
+      <p class="mt-4 text-[11px] text-slate-500">
+        Disclaimer: This calculator provides a general estimate of your due date using the standard
+        40-week (280-day) pregnancy model. Always consult your doctor or healthcare provider for accurate information.
+      </p>
+    </section>
+
+    <!-- Ad -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <!-- Related -->
+    <section class="mt-8">
+      <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <a href="/calculators/period-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Period Calculator</a>
+        <a href="/calculators/bmi-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">BMI Calculator</a>
+        <a href="/index.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Home</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t mt-10">
+    <div class="max-w-4xl mx-auto px-4 py-4 text-xs text-slate-500 flex justify-between">
+      <span>© <span id="year"></span> OnlineToolsHub.in</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function formatDate(d) {
+      if (!d) return "-";
+      return d.toLocaleDateString('en-IN', {
+        day: '2-digit', month: 'short', year: 'numeric'
+      });
+    }
+
+    document.getElementById('dueBtn').addEventListener('click', () => {
+      const lmpValue = document.getElementById('lmp').value;
+      const resultEl = document.getElementById('dueResult');
+
+      if (!lmpValue) {
+        resultEl.textContent = 'Please select the date of your last period (LMP).';
+        return;
+      }
+
+      const lmp = new Date(lmpValue);
+      const due = new Date(lmp);
+      due.setDate(due.getDate() + 280); // 40 weeks
+
+      const today = new Date();
+      const diffMs = today - lmp;
+      const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+      const weeksPreg = Math.floor(diffDays / 7);
+      const daysPreg = diffDays % 7;
+
+      resultEl.innerHTML = `
+        <div>Estimated due date: <span class="font-semibold">${formatDate(due)}</span></div>
+        <div>Approximate pregnancy age: <span class="font-semibold">${weeksPreg} weeks ${daysPreg} days</span></div>
+      `;
+    });
+  </script>
+
+</body>
+</html>

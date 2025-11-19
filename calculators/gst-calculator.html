@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GST Calculator | Online Tools Hub</title>
+  <meta name="description" content="Simple GST calculator. Calculate GST amount and total price from base amount and tax rate.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <!-- Header -->
+  <header class="w-full border-b bg-white">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="/index.html" class="font-semibold text-lg">
+        Online<span class="text-blue-600">Tools</span>Hub
+      </a>
+  
+      <nav class="flex gap-4 text-sm">
+        <a href="/index.html" class="hover:text-blue-600">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="max-w-2xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-semibold mb-2">GST Calculator</h1>
+    <p class="text-sm text-slate-600 mb-4">
+      Enter the base amount and GST rate to calculate GST value and total amount.
+    </p>
+
+    <!-- Top ad placeholder -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="bg-white rounded-lg shadow p-4 mb-6 space-y-3">
+      <div>
+        <label for="baseAmount" class="block text-sm mb-1">Base amount (₹)</label>
+        <input id="baseAmount" type="number" min="0" step="0.01"
+               class="border rounded px-3 py-2 w-full text-sm">
+      </div>
+
+      <div>
+        <label for="gstRate" class="block text-sm mb-1">GST rate (%)</label>
+        <input id="gstRate" type="number" min="0" step="0.1" value="18"
+               class="border rounded px-3 py-2 w-full text-sm">
+      </div>
+
+      <button id="gstCalcBtn"
+        class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
+        Calculate
+      </button>
+
+      <div id="gstResult" class="mt-3 text-sm font-medium"></div>
+    </section>
+
+    <!-- Bottom ad placeholder -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <!-- Related -->
+    <section class="mt-8">
+      <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <a href="/calculators/age-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">
+          Age Calculator
+        </a>
+        <a href="/calculators/date-difference-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">
+          Date Difference
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t mt-10">
+    <div class="max-w-4xl mx-auto px-4 py-4 text-xs text-slate-500 flex justify-between">
+      <span>© <span id="year"></span> OnlineToolsHub.in</span>
+      <a href="/pages/privacy-policy.html" class="hover:text-blue-600">Privacy</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const baseInput = document.getElementById('baseAmount');
+    const rateInput = document.getElementById('gstRate');
+    const resultEl = document.getElementById('gstResult');
+    const btn = document.getElementById('gstCalcBtn');
+
+    btn.addEventListener('click', () => {
+      const base = parseFloat(baseInput.value);
+      const rate = parseFloat(rateInput.value);
+
+      if (isNaN(base) || isNaN(rate) || base < 0 || rate < 0) {
+        resultEl.textContent = 'Please enter valid base amount and GST rate.';
+        return;
+      }
+
+      const gstAmount = base * rate / 100;
+      const total = base + gstAmount;
+
+      resultEl.innerHTML =
+        `GST Amount: ₹${gstAmount.toFixed(2)}<br>Total Amount (incl. GST): ₹${total.toFixed(2)}`;
+    });
+  </script>
+</body>
+</html>

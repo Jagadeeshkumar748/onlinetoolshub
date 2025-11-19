@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Text Case Converter | Online Tools Hub</title>
+  <meta name="description" content="Convert text to UPPERCASE, lowercase, Title Case and more.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <!-- Header -->
+  <header class="w-full border-b bg-white">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="/index.html" class="font-semibold text-lg">
+        Online<span class="text-blue-600">Tools</span>Hub
+      </a>
+  
+      <nav class="flex gap-4 text-sm">
+        <a href="/index.html" class="hover:text-blue-600">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-semibold mb-2">Text Case Converter</h1>
+    <p class="text-sm text-slate-600 mb-4">
+      Convert your text to uppercase, lowercase, title case or sentence case with one click.
+    </p>
+
+    <!-- Top ad -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="bg-white rounded-lg shadow p-4">
+      <textarea id="tcInput"
+        class="w-full h-64 border rounded px-3 py-2 text-sm focus:outline-none focus:ring mb-3"
+        placeholder="Type or paste your text here..."></textarea>
+
+      <div class="flex flex-wrap gap-2 text-xs mb-3">
+        <button data-action="upper" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">UPPERCASE</button>
+        <button data-action="lower" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">lowercase</button>
+        <button data-action="title" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">Title Case</button>
+        <button data-action="sentence" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">Sentence case</button>
+        <button data-action="capitalize" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">Capitalize Each Word</button>
+      </div>
+
+      <div class="flex flex-wrap gap-2 text-xs">
+        <button id="tcCopy" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">Copy text</button>
+        <button id="tcClear" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">Clear</button>
+      </div>
+    </section>
+
+    <!-- Bottom ad -->
+    <div class="w-full mt-6 mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="mt-6">
+      <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <a href="/tools/word-counter.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Word Counter</a>
+        <a href="/tools/json-formatter.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">JSON Formatter</a>
+        <a href="/tools/password-generator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Password Generator</a>
+        <a href="/index.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Home</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t mt-10">
+    <div class="max-w-4xl mx-auto px-4 py-4 text-xs text-slate-500 flex justify-between">
+      <span>© <span id="year"></span> OnlineToolsHub.in</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const tcInput = document.getElementById('tcInput');
+
+    function toTitleCase(str) {
+      return str.toLowerCase().replace(/\w\S*/g, (txt) =>
+        txt.charAt(0).toUpperCase() + txt.slice(1)
+      );
+    }
+
+    function toSentenceCase(str) {
+      const lower = str.toLowerCase();
+      return lower.replace(/(^\s*\w|[.!?]\s*\w)/g, (c) => c.toUpperCase());
+    }
+
+    function capitalizeEachWord(str) {
+      return str.replace(/\b\w/g, (c) => c.toUpperCase());
+    }
+
+    document.querySelectorAll('[data-action]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const action = btn.getAttribute('data-action');
+        let text = tcInput.value;
+
+        if (!text) return;
+
+        if (action === 'upper') text = text.toUpperCase();
+        if (action === 'lower') text = text.toLowerCase();
+        if (action === 'title') text = toTitleCase(text);
+        if (action === 'sentence') text = toSentenceCase(text);
+        if (action === 'capitalize') text = capitalizeEachWord(text);
+
+        tcInput.value = text;
+      });
+    });
+
+    document.getElementById('tcCopy').addEventListener('click', () => {
+      tcInput.select();
+      document.execCommand('copy');
+    });
+
+    document.getElementById('tcClear').addEventListener('click', () => {
+      tcInput.value = '';
+    });
+  </script>
+</body>
+</html>

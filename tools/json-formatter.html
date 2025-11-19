@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON Formatter & Validator | Online Tools Hub</title>
+  <meta name="description" content="Format, prettify and validate JSON online. See errors if your JSON is invalid.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <!-- Header -->
+  <header class="w-full border-b bg-white">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="/index.html" class="font-semibold text-lg">
+        Online<span class="text-blue-600">Tools</span>Hub
+      </a>
+  
+      <nav class="flex gap-4 text-sm">
+        <a href="/index.html" class="hover:text-blue-600">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-semibold mb-2">JSON Formatter & Validator</h1>
+    <p class="text-sm text-slate-600 mb-4">
+      Paste your JSON below and click “Format JSON” to prettify and validate it. If there is an error,
+      you’ll see the error message.
+    </p>
+
+    <!-- Top ad -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="grid gap-4 md:grid-cols-2">
+      <div class="bg-white rounded-lg shadow p-4">
+        <h2 class="text-sm font-semibold mb-2">Input JSON</h2>
+        <textarea id="jsonInput"
+          class="w-full h-80 border rounded px-3 py-2 text-xs font-mono focus:outline-none focus:ring"
+          placeholder='{"name": "Sample", "age": 25}'></textarea>
+
+        <div class="mt-3 flex flex-wrap gap-2 text-xs">
+          <button id="jsonFormatBtn" class="px-3 py-1.5 rounded bg-blue-600 text-white hover:bg-blue-700">
+            Format JSON
+          </button>
+          <button id="jsonMinifyBtn" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">
+            Minify
+          </button>
+          <button id="jsonClearBtn" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">
+            Clear
+          </button>
+        </div>
+
+        <div id="jsonStatus" class="mt-3 text-xs"></div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-4">
+        <h2 class="text-sm font-semibold mb-2">Formatted JSON</h2>
+        <textarea id="jsonOutput"
+          class="w-full h-80 border rounded px-3 py-2 text-xs font-mono focus:outline-none focus:ring"
+          readonly></textarea>
+
+        <div class="mt-3 flex flex-wrap gap-2 text-xs">
+          <button id="jsonCopyBtn" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">
+            Copy formatted JSON
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom ad -->
+    <div class="w-full mt-6 mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="mt-6">
+      <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <a href="/tools/word-counter.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Word Counter</a>
+        <a href="/tools/text-case-converter.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Text Case Converter</a>
+        <a href="/tools/base64-converter.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Base64 Tool (future)</a>
+        <a href="/index.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Home</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t mt-10">
+    <div class="max-w-5xl mx-auto px-4 py-4 text-xs text-slate-500 flex justify-between">
+      <span>© <span id="year"></span> OnlineToolsHub.in</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const inEl = document.getElementById('jsonInput');
+    const outEl = document.getElementById('jsonOutput');
+    const statusEl = document.getElementById('jsonStatus');
+
+    function setStatus(ok, msg) {
+      statusEl.textContent = msg;
+      statusEl.className = "mt-3 text-xs " + (ok ? "text-green-600" : "text-red-600");
+    }
+
+    document.getElementById('jsonFormatBtn').addEventListener('click', () => {
+      const text = inEl.value.trim();
+      if (!text) {
+        setStatus(false, "Please paste some JSON to format.");
+        outEl.value = "";
+        return;
+      }
+      try {
+        const obj = JSON.parse(text);
+        const pretty = JSON.stringify(obj, null, 2);
+        outEl.value = pretty;
+        setStatus(true, "Valid JSON ✔");
+      } catch (err) {
+        outEl.value = "";
+        setStatus(false, "Invalid JSON: " + err.message);
+      }
+    });
+
+    document.getElementById('jsonMinifyBtn').addEventListener('click', () => {
+      const text = inEl.value.trim();
+      if (!text) {
+        setStatus(false, "Please paste some JSON to minify.");
+        outEl.value = "";
+        return;
+      }
+      try {
+        const obj = JSON.parse(text);
+        const minified = JSON.stringify(obj);
+        outEl.value = minified;
+        setStatus(true, "Valid JSON ✔ (minified)");
+      } catch (err) {
+        outEl.value = "";
+        setStatus(false, "Invalid JSON: " + err.message);
+      }
+    });
+
+    document.getElementById('jsonClearBtn').addEventListener('click', () => {
+      inEl.value = "";
+      outEl.value = "";
+      setStatus(false, "");
+    });
+
+    document.getElementById('jsonCopyBtn').addEventListener('click', () => {
+      outEl.select();
+      document.execCommand('copy');
+    });
+  </script>
+</body>
+</html>

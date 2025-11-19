@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Word Counter | Online Tools Hub</title>
+  <meta name="description" content="Free online word and character counter with live statistics.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <!-- Header -->
+  <header class="w-full border-b bg-white">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="/index.html" class="font-semibold text-lg">
+        Online<span class="text-blue-600">Tools</span>Hub
+      </a>
+  
+      <nav class="flex gap-4 text-sm">
+        <a href="/index.html" class="hover:text-blue-600">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-semibold mb-2">Word & Character Counter</h1>
+    <p class="text-sm text-slate-600 mb-4">
+      Paste or type your text below to see live word count, character count, line count and more.
+    </p>
+
+    <!-- Top ad -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="grid gap-4 md:grid-cols-3 items-start">
+      <div class="md:col-span-2 bg-white rounded-lg shadow p-4">
+        <textarea id="wcInput"
+          class="w-full h-64 border rounded px-3 py-2 text-sm focus:outline-none focus:ring"
+          placeholder="Start typing or paste your text here..."></textarea>
+
+        <div class="mt-3 flex flex-wrap gap-2 text-xs">
+          <button id="wcClear" class="px-3 py-1 rounded bg-slate-100 hover:bg-slate-200">
+            Clear
+          </button>
+          <button id="wcCopy" class="px-3 py-1 rounded bg-slate-100 hover:bg-slate-200">
+            Copy text
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-4 text-sm space-y-2">
+        <h2 class="font-semibold text-sm mb-1">Statistics</h2>
+        <div class="flex justify-between">
+          <span>Words</span>
+          <span id="wcWords" class="font-semibold">0</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Characters (with spaces)</span>
+          <span id="wcChars" class="font-semibold">0</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Characters (without spaces)</span>
+          <span id="wcCharsNoSpace" class="font-semibold">0</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Lines</span>
+          <span id="wcLines" class="font-semibold">0</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Paragraphs</span>
+          <span id="wcParas" class="font-semibold">0</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom ad -->
+    <div class="w-full mt-6 mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <!-- Related tools -->
+    <section class="mt-6">
+      <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <a href="/tools/text-case-converter.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">
+          Text Case Converter
+        </a>
+        <a href="/tools/json-formatter.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">
+          JSON Formatter
+        </a>
+        <a href="/tools/password-generator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">
+          Password Generator
+        </a>
+        <a href="/index.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">
+          Home
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t mt-10">
+    <div class="max-w-5xl mx-auto px-4 py-4 text-xs text-slate-500 flex justify-between">
+      <span>© <span id="year"></span> OnlineToolsHub.in</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const input = document.getElementById('wcInput');
+    const wordsEl = document.getElementById('wcWords');
+    const charsEl = document.getElementById('wcChars');
+    const charsNoSpaceEl = document.getElementById('wcCharsNoSpace');
+    const linesEl = document.getElementById('wcLines');
+    const parasEl = document.getElementById('wcParas');
+
+    function updateStats() {
+      const text = input.value || "";
+
+      const chars = text.length;
+      const charsNoSpace = text.replace(/\s/g, '').length;
+
+      const trimmed = text.trim();
+      const words = trimmed ? trimmed.split(/\s+/).length : 0;
+
+      const lines = text.split(/\r\n|\r|\n/).filter(() => true).length;
+      const paras = trimmed ? trimmed.split(/\n\s*\n/).length : 0;
+
+      wordsEl.textContent = words;
+      charsEl.textContent = chars;
+      charsNoSpaceEl.textContent = charsNoSpace;
+      linesEl.textContent = lines;
+      parasEl.textContent = paras;
+    }
+
+    input.addEventListener('input', updateStats);
+    updateStats();
+
+    document.getElementById('wcClear').addEventListener('click', () => {
+      input.value = '';
+      updateStats();
+    });
+
+    document.getElementById('wcCopy').addEventListener('click', () => {
+      input.select();
+      document.execCommand('copy');
+    });
+  </script>
+</body>
+</html>

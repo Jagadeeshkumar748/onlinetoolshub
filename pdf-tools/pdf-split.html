@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Split PDF | Online Tools Hub</title>
+  <meta name="description" content="Split a PDF file by extracting a page range into a new PDF. Done in your browser.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <!-- Header -->
+  <header class="w-full border-b bg-white">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="/index.html" class="font-semibold text-lg">
+        Online<span class="text-blue-600">Tools</span>Hub
+      </a>
+      <nav class="flex gap-4 text-sm">
+        <a href="/index.html" class="hover:text-blue-600">Home</a>
+        <a href="/calculators/age-calculator.html" class="hover:text-blue-600">Calculators</a>
+        <a href="/tools/word-counter.html" class="hover:text-blue-600">Tools</a>
+        <a href="/pdf-tools/pdf-merge.html" class="text-blue-600 font-medium">PDF</a>
+        <a href="/image-tools/image-compressor.html" class="hover:text-blue-600">Images</a>
+        <a href="/pages/about.html" class="hover:text-blue-600">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-semibold mb-2">Split PDF (Page Range)</h1>
+    <p class="text-sm text-slate-600 mb-4">
+      Upload a PDF file and extract a specific page range into a new PDF. Everything runs in your browser.
+    </p>
+
+    <!-- Top ad -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="bg-white rounded-lg shadow p-4 mb-6 text-sm">
+      <label class="block mb-2 font-medium">Select a PDF file</label>
+
+      <input
+        id="splitPdfInput"
+        type="file"
+        accept="application/pdf"
+        class="block w-full text-xs text-slate-600 border rounded px-3 py-2 mb-3">
+
+      <div id="splitFileInfo" class="text-[11px] text-slate-500 mb-3"></div>
+
+      <div class="grid grid-cols-2 gap-2 mb-3 text-xs">
+        <div>
+          <label class="block mb-1 font-medium">From page</label>
+          <input id="pageFrom" type="number" min="1" class="border rounded px-2 py-1 w-full">
+        </div>
+        <div>
+          <label class="block mb-1 font-medium">To page</label>
+          <input id="pageTo" type="number" min="1" class="border rounded px-2 py-1 w-full">
+        </div>
+      </div>
+
+      <button
+        id="splitBtn"
+        class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+        disabled>
+        Split & download
+      </button>
+
+      <div id="splitStatus" class="mt-3 text-[11px] text-slate-500"></div>
+
+      <div id="splitResult" class="mt-4 hidden text-xs">
+        <p class="mb-2">Split PDF is ready.</p>
+        <a
+          id="splitDownload"
+          href="#"
+          download="split.pdf"
+          class="inline-block px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">
+          Download split PDF
+        </a>
+      </div>
+    </section>
+
+    <!-- Bottom ad -->
+    <div class="w-full mt-6 mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="mt-6">
+      <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <a href="/pdf-tools/pdf-merge.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Merge PDF</a>
+        <a href="/pdf-tools/pdf-compress.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Compress PDF</a>
+        <a href="/pdf-tools/image-to-pdf.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Image to PDF</a>
+        <a href="/index.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Home</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t mt-10">
+    <div class="max-w-4xl mx-auto px-4 py-4 text-xs text-slate-500 flex justify-between">
+      <span>© <span id="year"></span> OnlineToolsHub.in</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const splitPdfInput = document.getElementById('splitPdfInput');
+    const splitFileInfo = document.getElementById('splitFileInfo');
+    const splitBtn = document.getElementById('splitBtn');
+    const splitStatus = document.getElementById('splitStatus');
+    const pageFromInput = document.getElementById('pageFrom');
+    const pageToInput = document.getElementById('pageTo');
+    const splitResult = document.getElementById('splitResult');
+    const splitDownload = document.getElementById('splitDownload');
+
+    let splitFile = null;
+    let totalPages = 0;
+
+    splitPdfInput.addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      splitFile = null;
+      splitFileInfo.textContent = '';
+      splitStatus.textContent = '';
+      splitResult.classList.add('hidden');
+      splitBtn.disabled = true;
+      totalPages = 0;
+
+      if (!file) return;
+      if (file.type !== 'application/pdf') {
+        splitFileInfo.textContent = 'Please select a valid PDF file.';
+        return;
+      }
+
+      try {
+        const { PDFDocument } = PDFLib;
+        const bytes = await file.arrayBuffer();
+        const pdf = await PDFDocument.load(bytes);
+        totalPages = pdf.getPageCount();
+
+        splitFile = { file, bytes, pdf };
+        splitFileInfo.textContent =
+          `Selected: ${file.name} (${Math.round(file.size / 1024)} KB, ${totalPages} pages).`;
+
+        pageFromInput.value = 1;
+        pageToInput.value = totalPages;
+        splitBtn.disabled = false;
+      } catch (err) {
+        console.error(err);
+        splitFileInfo.textContent = 'Could not read PDF. Please try another file.';
+      }
+    });
+
+    splitBtn.addEventListener('click', async () => {
+      if (!splitFile || !splitFile.pdf) return;
+
+      const from = parseInt(pageFromInput.value, 10);
+      const to = parseInt(pageToInput.value, 10);
+
+      splitStatus.textContent = '';
+      splitResult.classList.add('hidden');
+
+      if (!from || !to || from < 1 || to < from || to > totalPages) {
+        splitStatus.textContent = `Please enter a valid range between 1 and ${totalPages}.`;
+        return;
+      }
+
+      splitBtn.disabled = true;
+      splitStatus.textContent = 'Splitting PDF in your browser... please wait.';
+
+      try {
+        const { PDFDocument } = PDFLib;
+        const outPdf = await PDFDocument.create();
+        const indices = [];
+        for (let i = from - 1; i <= to - 1; i++) indices.push(i);
+
+        const pages = await outPdf.copyPages(splitFile.pdf, indices);
+        pages.forEach(p => outPdf.addPage(p));
+
+        const outBytes = await outPdf.save({ useObjectStreams: true });
+        const blob = new Blob([outBytes], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+
+        splitDownload.href = url;
+        splitDownload.download = `pages-${from}-to-${to}.pdf`;
+        splitResult.classList.remove('hidden');
+
+        splitStatus.textContent = `Split complete. Extracted pages ${from} to ${to}.`;
+      } catch (err) {
+        console.error(err);
+        splitStatus.textContent = 'Error while splitting PDF. Please try again.';
+      } finally {
+        splitBtn.disabled = !splitFile;
+      }
+    });
+  </script>
+</body>
+</html>

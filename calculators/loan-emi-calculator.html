@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loan EMI Calculator | Online Tools Hub</title>
+  <meta name="description" content="Calculate monthly EMI for home loan, personal loan, car loan and more.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+<!-- Header -->
+<header class="w-full border-b bg-white">
+  <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+    <a href="/index.html" class="font-semibold text-lg">
+      Online<span class="text-blue-600">Tools</span>Hub
+    </a>
+
+    <nav class="flex gap-4 text-sm">
+      <a href="/index.html" class="hover:text-blue-600">Home</a>
+    </nav>
+  </div>
+</header>
+
+  <main class="max-w-2xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-semibold mb-2">Loan EMI Calculator</h1>
+    <p class="text-sm text-slate-600 mb-4">
+      Calculate monthly EMI, total interest and total payment for your loan.
+    </p>
+
+    <!-- Ad -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="bg-white rounded-lg shadow p-4 mb-6 space-y-3">
+      <div>
+        <label class="block text-sm mb-1">Loan amount (₹)</label>
+        <input id="loanAmount" type="number" class="border rounded px-3 py-2 w-full text-sm">
+      </div>
+
+      <div>
+        <label class="block text-sm mb-1">Interest rate (% per year)</label>
+        <input id="loanRate" type="number" step="0.01" class="border rounded px-3 py-2 w-full text-sm">
+      </div>
+
+      <div>
+        <label class="block text-sm mb-1">Loan tenure (years)</label>
+        <input id="loanYears" type="number" class="border rounded px-3 py-2 w-full text-sm">
+      </div>
+
+      <button id="emiBtn"
+        class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
+        Calculate EMI
+      </button>
+
+      <div id="emiResult" class="mt-4 text-sm font-medium space-y-1"></div>
+    </section>
+
+    <!-- Ad -->
+    <div class="w-full mb-4 border border-dashed border-slate-300 text-[10px] text-center py-3 rounded">
+      Ad space
+    </div>
+
+    <section class="mt-8">
+      <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <a href="/calculators/sip-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">SIP Calculator</a>
+        <a href="/calculators/fd-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">FD Calculator</a>
+        <a href="/calculators/percentage-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Percentage Calculator</a>
+        <a href="/index.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Home</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t mt-10">
+    <div class="max-w-4xl mx-auto px-4 py-4 text-xs text-slate-500 flex justify-between">
+      <span>© <span id="year"></span> OnlineToolsHub.in</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function formatMoney(num) {
+      return Number(num).toLocaleString('en-IN', {
+        maximumFractionDigits: 0
+      });
+    }
+
+    document.getElementById('emiBtn').addEventListener('click', () => {
+      const P = parseFloat(document.getElementById('loanAmount').value);
+      const R = parseFloat(document.getElementById('loanRate').value);
+      const Y = parseFloat(document.getElementById('loanYears').value);
+      const res = document.getElementById('emiResult');
+
+      if (!P || !R || !Y) {
+        res.textContent = 'Please fill all fields.';
+        return;
+      }
+
+      const r = R / 100 / 12;
+      const n = Y * 12;
+
+      const emi = P * r * ((1 + r) ** n) / (((1 + r) ** n) - 1);
+      const totalPayment = emi * n;
+      const totalInterest = totalPayment - P;
+
+      res.innerHTML = `
+        <div>Monthly EMI: <span class="font-semibold">₹${formatMoney(emi)}</span></div>
+        <div>Total payment: <span class="font-semibold">₹${formatMoney(totalPayment)}</span></div>
+        <div>Total interest: <span class="font-semibold">₹${formatMoney(totalInterest)}</span></div>
+      `;
+    });
+  </script>
+
+</body>
+</html>

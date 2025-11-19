@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About | Online Tools Hub</title>
+  <meta name="description" content="Learn more about Online Tools Hub, a free collection of everyday web tools for users in India.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <!-- Header -->
+  <header class="w-full border-b bg-white">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="/index.html" class="font-semibold text-lg">
+        Online<span class="text-blue-600">Tools</span>Hub
+      </a>
+  
+      <nav class="flex gap-4 text-sm">
+        <a href="/index.html" class="hover:text-blue-600">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-semibold mb-3">About OnlineToolsHub.in</h1>
+    <p class="text-sm text-slate-700 mb-3 leading-relaxed">
+      OnlineToolsHub.in is a simple collection of web-based tools created to make daily tasks faster and easier
+      for users in India – students, office workers, government staff and anyone who needs quick utilities in the browser.
+    </p>
+    <p class="text-sm text-slate-700 mb-3 leading-relaxed">
+      The goal is to offer lightweight, clutter-free tools that work on mobile and desktop without sign-up or
+      complicated steps. Over time, more calculators, date tools, IRCTC helpers, PDF utilities and other useful
+      tools will be added.
+    </p>
+    <p class="text-sm text-slate-700 leading-relaxed">
+      This site is built and maintained as a hobby/side project. If you notice any calculation mistakes or have
+      suggestions for new tools, please reach out using the Contact page.
+    </p>
+  </main>
+
+  <footer class="border-t mt-10">
+    <div class="max-w-4xl mx-auto px-4 py-4 text-xs text-slate-500 flex justify-between">
+      <span>© <span id="year"></span> OnlineToolsHub.in</span>
+      <a href="/pages/privacy-policy.html" class="hover:text-blue-600">Privacy</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
