@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://onlinetoolshub.in/</loc>
+  </url>
+
+  <!-- Pages -->
+  <url><loc>https://onlinetoolshub.in/pages/about.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/pages/privacy-policy.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/pages/contact.html</loc></url>
+
+  <!-- Calculators -->
+  <url><loc>https://onlinetoolshub.in/calculators/age-calculator.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/calculators/loan-emi-calculator.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/calculators/sip-calculator.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/calculators/fd-calculator.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/calculators/rd-calculator.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/calculators/gst-calculator.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/calculators/bmi-calculator.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/calculators/percentage-calculator.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/calculators/date-difference-calculator.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/calculators/period-calculator.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/calculators/pregnancy-due-date-calculator.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/calculators/irctc-60-days-calculator.html</loc></url>
+
+  <!-- Text & Developer Tools -->
+  <url><loc>https://onlinetoolshub.in/tools/word-counter.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/tools/text-case-converter.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/tools/json-formatter.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/tools/base64-converter.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/tools/url-encoder-decoder.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/tools/qr-generator.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/tools/password-generator.html</loc></url>
+
+  <!-- PDF Tools (Frontend-only) -->
+  <url><loc>https://onlinetoolshub.in/pdf-tools/pdf-merge.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/pdf-tools/pdf-split.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/pdf-tools/pdf-compress.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/pdf-tools/image-to-pdf.html</loc></url>
+
+  <!-- Image Tools -->
+  <url><loc>https://onlinetoolshub.in/image-tools/image-compressor.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/image-tools/image-resizer.html</loc></url>
+  <url><loc>https://onlinetoolshub.in/image-tools/image-format-converter.html</loc></url>
+
+</urlset>
