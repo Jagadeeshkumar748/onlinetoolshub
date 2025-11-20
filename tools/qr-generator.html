@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLT2CG7JZ8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-BLT2CG7JZ8');
+  </script>
   <meta charset="UTF-8">
   <title>QR Code Generator | Online Tools Hub</title>
-  <meta name="description" content="Generate QR codes for links, text, phone numbers and more. Free online QR generator.">
+  <meta name="description"
+    content="Generate QR codes for links, text, phone numbers and more. Free online QR generator.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- QRCode.js library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
+
 <body class="bg-slate-50 text-slate-900">
   <!-- Header -->
   <header class="w-full border-b bg-white">
@@ -16,7 +28,7 @@
       <a href="/index.html" class="font-semibold text-lg">
         Online<span class="text-blue-600">Tools</span>Hub
       </a>
-  
+
       <nav class="flex gap-4 text-sm">
         <a href="/index.html" class="hover:text-blue-600">Home</a>
       </nav>
@@ -37,17 +49,14 @@
     <section class="bg-white rounded-lg shadow p-4 grid gap-4 md:grid-cols-2 items-start">
       <div>
         <label class="block text-sm mb-1">Text / URL</label>
-        <textarea id="qrInput"
-          class="w-full h-40 border rounded px-3 py-2 text-sm focus:outline-none focus:ring mb-3"
+        <textarea id="qrInput" class="w-full h-40 border rounded px-3 py-2 text-sm focus:outline-none focus:ring mb-3"
           placeholder="https://onlinetoolshub.in or any text..."></textarea>
 
         <div class="flex flex-wrap gap-2 text-xs mb-3">
-          <button id="qrGenerate"
-            class="px-3 py-1.5 rounded bg-blue-600 text-white hover:bg-blue-700">
+          <button id="qrGenerate" class="px-3 py-1.5 rounded bg-blue-600 text-white hover:bg-blue-700">
             Generate QR
           </button>
-          <button id="qrClear"
-            class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">
+          <button id="qrClear" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">
             Clear
           </button>
         </div>
@@ -56,12 +65,11 @@
           <div>
             <label class="block mb-1">Size (px)</label>
             <input id="qrSize" type="number" min="100" max="512" value="200"
-                   class="border rounded px-2 py-1 w-20 text-xs">
+              class="border rounded px-2 py-1 w-20 text-xs">
           </div>
           <div>
             <label class="block mb-1">Margin</label>
-            <input id="qrMargin" type="number" min="0" max="10" value="2"
-                   class="border rounded px-2 py-1 w-16 text-xs">
+            <input id="qrMargin" type="number" min="0" max="10" value="2" class="border rounded px-2 py-1 w-16 text-xs">
           </div>
         </div>
 
@@ -71,7 +79,7 @@
       <div class="flex flex-col items-center">
         <h2 class="text-sm font-semibold mb-2">QR Code Preview</h2>
         <div id="qrContainer"
-             class="border rounded-lg p-3 flex items-center justify-center min-h-[220px] min-w-[220px] bg-slate-50">
+          class="border rounded-lg p-3 flex items-center justify-center min-h-[220px] min-w-[220px] bg-slate-50">
           <!-- QR will be rendered here -->
         </div>
         <p class="mt-3 text-[11px] text-slate-500 text-center px-2">
@@ -157,4 +165,5 @@
     generateQR();
   </script>
 </body>
+
 </html>

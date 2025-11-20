@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLT2CG7JZ8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-BLT2CG7JZ8');
+  </script>
   <meta charset="UTF-8">
   <title>Percentage Calculator | Online Tools Hub</title>
   <meta name="description" content="Simple percentage calculator for discounts, percentage change and more.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-slate-50 text-slate-900">
 
- <!-- Header -->
- <header class="w-full border-b bg-white">
-  <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
-    <a href="/index.html" class="font-semibold text-lg">
-      Online<span class="text-blue-600">Tools</span>Hub
-    </a>
+  <!-- Header -->
+  <header class="w-full border-b bg-white">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="/index.html" class="font-semibold text-lg">
+        Online<span class="text-blue-600">Tools</span>Hub
+      </a>
 
-    <nav class="flex gap-4 text-sm">
-      <a href="/index.html" class="hover:text-blue-600">Home</a>
-    </nav>
-  </div>
-</header>
+      <nav class="flex gap-4 text-sm">
+        <a href="/index.html" class="hover:text-blue-600">Home</a>
+      </nav>
+    </div>
+  </header>
 
   <main class="max-w-2xl mx-auto px-4 py-8">
     <h1 class="text-2xl font-semibold mb-2">Percentage Calculator</h1>
@@ -71,9 +82,11 @@
       <div>
         <h2 class="font-semibold mb-2 text-sm">3. Percentage increase / decrease</h2>
         <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
-          <input id="oldVal" type="number" placeholder="Old value" class="border rounded px-3 py-2 w-full sm:w-1/3 text-sm">
+          <input id="oldVal" type="number" placeholder="Old value"
+            class="border rounded px-3 py-2 w-full sm:w-1/3 text-sm">
           <span class="hidden sm:inline text-xs text-slate-500">to</span>
-          <input id="newVal" type="number" placeholder="New value" class="border rounded px-3 py-2 w-full sm:w-1/3 text-sm">
+          <input id="newVal" type="number" placeholder="New value"
+            class="border rounded px-3 py-2 w-full sm:w-1/3 text-sm">
         </div>
         <button id="changeBtn" class="mt-2 bg-blue-600 text-white text-xs px-3 py-1.5 rounded hover:bg-blue-700">
           Calculate
@@ -90,9 +103,12 @@
     <section class="mt-8">
       <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
       <div class="flex flex-wrap gap-2 text-xs">
-        <a href="/calculators/gst-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">GST Calculator</a>
-        <a href="/calculators/loan-emi-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">EMI Calculator</a>
-        <a href="/calculators/age-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Age Calculator</a>
+        <a href="/calculators/gst-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">GST
+          Calculator</a>
+        <a href="/calculators/loan-emi-calculator.html"
+          class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">EMI Calculator</a>
+        <a href="/calculators/age-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Age
+          Calculator</a>
         <a href="/index.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Home</a>
       </div>
     </section>
@@ -157,4 +173,5 @@
   </script>
 
 </body>
+
 </html>

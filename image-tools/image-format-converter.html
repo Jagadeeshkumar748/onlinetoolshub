@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLT2CG7JZ8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-BLT2CG7JZ8');
+  </script>
   <meta charset="UTF-8">
   <title>Image Format Converter | Online Tools Hub</title>
   <meta name="description" content="Convert images between JPG, PNG and WebP directly in your browser.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-slate-50 text-slate-900">
 
- <!-- Header -->
- <header class="w-full border-b bg-white">
+  <!-- Header -->
+  <header class="w-full border-b bg-white">
     <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
       <a href="/index.html" class="font-semibold text-lg">
         Online<span class="text-blue-600">Tools</span>Hub
       </a>
-  
+
       <nav class="flex gap-4 text-sm">
         <a href="/index.html" class="hover:text-blue-600">Home</a>
       </nav>
@@ -36,10 +47,7 @@
 
     <section class="bg-white rounded-lg shadow p-4 mb-6 text-sm">
       <label class="block mb-2 font-medium">Select an image</label>
-      <input
-        id="convImgInput"
-        type="file"
-        accept="image/jpeg,image/png,image/webp"
+      <input id="convImgInput" type="file" accept="image/jpeg,image/png,image/webp"
         class="block w-full text-xs text-slate-600 border rounded px-3 py-2 mb-3">
 
       <div id="convInfo" class="text-[11px] text-slate-500 mb-3"></div>
@@ -63,8 +71,7 @@
         </div>
       </div>
 
-      <button
-        id="convBtn"
+      <button id="convBtn"
         class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
         disabled>
         Convert image
@@ -76,10 +83,8 @@
         <h2 class="text-xs font-semibold mb-2">Converted preview</h2>
         <img id="convPreview" alt="Converted" class="max-w-full max-h-80 border rounded mb-2">
         <div class="flex flex-wrap gap-2 text-xs">
-          <a id="convDownload"
-             href="#"
-             download="converted-image.jpg"
-             class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200 inline-block">
+          <a id="convDownload" href="#" download="converted-image.jpg"
+            class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200 inline-block">
             Download converted image
           </a>
         </div>
@@ -94,9 +99,12 @@
     <section class="mt-6">
       <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
       <div class="flex flex-wrap gap-2 text-xs">
-        <a href="/image-tools/image-compressor.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Image Compressor</a>
-        <a href="/image-tools/image-resizer.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Image Resizer</a>
-        <a href="/pdf-tools/image-to-pdf.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Image to PDF</a>
+        <a href="/image-tools/image-compressor.html"
+          class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Image Compressor</a>
+        <a href="/image-tools/image-resizer.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Image
+          Resizer</a>
+        <a href="/pdf-tools/image-to-pdf.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Image to
+          PDF</a>
         <a href="/index.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Home</a>
       </div>
     </section>
@@ -197,4 +205,5 @@
     });
   </script>
 </body>
+
 </html>

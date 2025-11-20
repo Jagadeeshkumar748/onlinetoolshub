@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLT2CG7JZ8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-BLT2CG7JZ8');
+  </script>
   <meta charset="UTF-8">
   <title>RD Calculator | Online Tools Hub</title>
   <meta name="description" content="Recurring Deposit calculator to estimate maturity amount and interest earned.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-slate-50 text-slate-900">
 
- <!-- Header -->
- <header class="w-full border-b bg-white">
-  <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
-    <a href="/index.html" class="font-semibold text-lg">
-      Online<span class="text-blue-600">Tools</span>Hub
-    </a>
+  <!-- Header -->
+  <header class="w-full border-b bg-white">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="/index.html" class="font-semibold text-lg">
+        Online<span class="text-blue-600">Tools</span>Hub
+      </a>
 
-    <nav class="flex gap-4 text-sm">
-      <a href="/index.html" class="hover:text-blue-600">Home</a>
-    </nav>
-  </div>
-</header>
+      <nav class="flex gap-4 text-sm">
+        <a href="/index.html" class="hover:text-blue-600">Home</a>
+      </nav>
+    </div>
+  </header>
 
   <main class="max-w-2xl mx-auto px-4 py-8">
     <h1 class="text-2xl font-semibold mb-2">RD Calculator</h1>
@@ -49,8 +60,7 @@
         <input id="rdYears" type="number" class="border rounded px-3 py-2 w-full text-sm">
       </div>
 
-      <button id="rdBtn"
-        class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
+      <button id="rdBtn" class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
         Calculate RD
       </button>
 
@@ -65,9 +75,12 @@
     <section class="mt-8">
       <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
       <div class="flex flex-wrap gap-2 text-xs">
-        <a href="/calculators/fd-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">FD Calculator</a>
-        <a href="/calculators/sip-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">SIP Calculator</a>
-        <a href="/calculators/loan-emi-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">EMI Calculator</a>
+        <a href="/calculators/fd-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">FD
+          Calculator</a>
+        <a href="/calculators/sip-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">SIP
+          Calculator</a>
+        <a href="/calculators/loan-emi-calculator.html"
+          class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">EMI Calculator</a>
         <a href="/index.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Home</a>
       </div>
     </section>
@@ -117,4 +130,5 @@
   </script>
 
 </body>
+
 </html>

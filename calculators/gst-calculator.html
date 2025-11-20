@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLT2CG7JZ8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-BLT2CG7JZ8');
+  </script>
   <meta charset="UTF-8">
   <title>GST Calculator | Online Tools Hub</title>
-  <meta name="description" content="Simple GST calculator. Calculate GST amount and total price from base amount and tax rate.">
+  <meta name="description"
+    content="Simple GST calculator. Calculate GST amount and total price from base amount and tax rate.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-slate-50 text-slate-900">
   <!-- Header -->
   <header class="w-full border-b bg-white">
@@ -14,7 +26,7 @@
       <a href="/index.html" class="font-semibold text-lg">
         Online<span class="text-blue-600">Tools</span>Hub
       </a>
-  
+
       <nav class="flex gap-4 text-sm">
         <a href="/index.html" class="hover:text-blue-600">Home</a>
       </nav>
@@ -36,18 +48,15 @@
     <section class="bg-white rounded-lg shadow p-4 mb-6 space-y-3">
       <div>
         <label for="baseAmount" class="block text-sm mb-1">Base amount (₹)</label>
-        <input id="baseAmount" type="number" min="0" step="0.01"
-               class="border rounded px-3 py-2 w-full text-sm">
+        <input id="baseAmount" type="number" min="0" step="0.01" class="border rounded px-3 py-2 w-full text-sm">
       </div>
 
       <div>
         <label for="gstRate" class="block text-sm mb-1">GST rate (%)</label>
-        <input id="gstRate" type="number" min="0" step="0.1" value="18"
-               class="border rounded px-3 py-2 w-full text-sm">
+        <input id="gstRate" type="number" min="0" step="0.1" value="18" class="border rounded px-3 py-2 w-full text-sm">
       </div>
 
-      <button id="gstCalcBtn"
-        class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
+      <button id="gstCalcBtn" class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
         Calculate
       </button>
 
@@ -66,7 +75,8 @@
         <a href="/calculators/age-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">
           Age Calculator
         </a>
-        <a href="/calculators/date-difference-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">
+        <a href="/calculators/date-difference-calculator.html"
+          class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">
           Date Difference
         </a>
       </div>
@@ -106,4 +116,5 @@
     });
   </script>
 </body>
+
 </html>

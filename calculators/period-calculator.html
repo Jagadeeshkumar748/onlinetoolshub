@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLT2CG7JZ8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-BLT2CG7JZ8');
+  </script>
   <meta charset="UTF-8">
   <title>Period Calculator | Online Tools Hub</title>
-  <meta name="description" content="Estimate your next period date and fertile window based on your last period and cycle length.">
+  <meta name="description"
+    content="Estimate your next period date and fertile window based on your last period and cycle length.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-slate-50 text-slate-900">
 
   <!-- Header -->
@@ -15,7 +27,7 @@
       <a href="/index.html" class="font-semibold text-lg">
         Online<span class="text-blue-600">Tools</span>Hub
       </a>
-  
+
       <nav class="flex gap-4 text-sm">
         <a href="/index.html" class="hover:text-blue-600">Home</a>
       </nav>
@@ -42,10 +54,9 @@
         Average cycle length (days)
       </label>
       <input id="cycleLength" type="number" min="20" max="45" placeholder="28"
-             class="border rounded px-3 py-2 w-full mb-3 text-sm">
+        class="border rounded px-3 py-2 w-full mb-3 text-sm">
 
-      <button id="periodBtn"
-        class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
+      <button id="periodBtn" class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
         Calculate
       </button>
 
@@ -66,9 +77,12 @@
     <section class="mt-8">
       <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
       <div class="flex flex-wrap gap-2 text-xs">
-        <a href="/calculators/age-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Age Calculator</a>
-        <a href="/calculators/bmi-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">BMI Calculator</a>
-        <a href="/calculators/pregnancy-due-date-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Pregnancy Due Date</a>
+        <a href="/calculators/age-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Age
+          Calculator</a>
+        <a href="/calculators/bmi-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">BMI
+          Calculator</a>
+        <a href="/calculators/pregnancy-due-date-calculator.html"
+          class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Pregnancy Due Date</a>
         <a href="/index.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Home</a>
       </div>
     </section>
@@ -127,4 +141,5 @@
   </script>
 
 </body>
+
 </html>

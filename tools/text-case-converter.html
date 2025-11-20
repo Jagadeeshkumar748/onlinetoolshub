@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLT2CG7JZ8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-BLT2CG7JZ8');
+  </script>
   <meta charset="UTF-8">
   <title>Text Case Converter | Online Tools Hub</title>
   <meta name="description" content="Convert text to UPPERCASE, lowercase, Title Case and more.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-slate-50 text-slate-900">
   <!-- Header -->
   <header class="w-full border-b bg-white">
@@ -14,7 +25,7 @@
       <a href="/index.html" class="font-semibold text-lg">
         Online<span class="text-blue-600">Tools</span>Hub
       </a>
-  
+
       <nav class="flex gap-4 text-sm">
         <a href="/index.html" class="hover:text-blue-600">Home</a>
       </nav>
@@ -33,16 +44,17 @@
     </div>
 
     <section class="bg-white rounded-lg shadow p-4">
-      <textarea id="tcInput"
-        class="w-full h-64 border rounded px-3 py-2 text-sm focus:outline-none focus:ring mb-3"
+      <textarea id="tcInput" class="w-full h-64 border rounded px-3 py-2 text-sm focus:outline-none focus:ring mb-3"
         placeholder="Type or paste your text here..."></textarea>
 
       <div class="flex flex-wrap gap-2 text-xs mb-3">
         <button data-action="upper" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">UPPERCASE</button>
         <button data-action="lower" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">lowercase</button>
         <button data-action="title" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">Title Case</button>
-        <button data-action="sentence" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">Sentence case</button>
-        <button data-action="capitalize" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">Capitalize Each Word</button>
+        <button data-action="sentence" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">Sentence
+          case</button>
+        <button data-action="capitalize" class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200">Capitalize Each
+          Word</button>
       </div>
 
       <div class="flex flex-wrap gap-2 text-xs">
@@ -59,9 +71,12 @@
     <section class="mt-6">
       <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
       <div class="flex flex-wrap gap-2 text-xs">
-        <a href="/tools/word-counter.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Word Counter</a>
-        <a href="/tools/json-formatter.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">JSON Formatter</a>
-        <a href="/tools/password-generator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Password Generator</a>
+        <a href="/tools/word-counter.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Word
+          Counter</a>
+        <a href="/tools/json-formatter.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">JSON
+          Formatter</a>
+        <a href="/tools/password-generator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Password
+          Generator</a>
         <a href="/index.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Home</a>
       </div>
     </section>
@@ -120,4 +135,5 @@
     });
   </script>
 </body>
+
 </html>
