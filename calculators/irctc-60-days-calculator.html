@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>IRCTC 60 Days Booking Opening Date Calculator | Online Tools Hub</title>
-  <meta name="description" content="Enter your train journey date and find the booking opening date based on a 60 days advance booking rule.">
+  <meta name="description"
+    content="Enter your train journey date and find the booking opening date based on a 60 days advance booking rule.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://onlinetoolshub.in/calculators/irctc-60-days-calculator.html">
+
+  <meta property="og:title" content="IRCTC 60 Days Calculator – Train Ticket Booking Date">
+  <meta property="og:description"
+    content="Enter your journey date to quickly calculate the last date on which you can book IRCTC train tickets.">
+  <meta property="og:url" content="https://onlinetoolshub.in/calculators/irctc-60-days-calculator.html">
+  <meta property="og:type" content="website">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-50 text-slate-900">
- <!-- Header -->
- <header class="w-full border-b bg-white">
-  <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
-    <a href="/index.html" class="font-semibold text-lg">
-      Online<span class="text-blue-600">Tools</span>Hub
-    </a>
 
-    <nav class="flex gap-4 text-sm">
-      <a href="/index.html" class="hover:text-blue-600">Home</a>
-    </nav>
-  </div>
-</header>
+<body class="bg-slate-50 text-slate-900">
+  <!-- Header -->
+  <header class="w-full border-b bg-white">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="/index.html" class="font-semibold text-lg">
+        Online<span class="text-blue-600">Tools</span>Hub
+      </a>
+
+      <nav class="flex gap-4 text-sm">
+        <a href="/index.html" class="hover:text-blue-600">Home</a>
+      </nav>
+    </div>
+  </header>
 
   <!-- Main -->
   <main class="max-w-2xl mx-auto px-4 py-8">
@@ -38,26 +48,24 @@
     <section class="bg-white rounded-lg shadow p-4 mb-6 space-y-3">
       <div>
         <label for="journeyDate" class="block text-sm mb-1">Journey date</label>
-        <input id="journeyDate" type="date"
-               class="border rounded px-3 py-2 w-full text-sm">
+        <input id="journeyDate" type="date" class="border rounded px-3 py-2 w-full text-sm">
       </div>
 
       <div>
         <label for="advDays" class="block text-sm mb-1">
           Advance booking days <span class="text-xs text-slate-500">(default 60)</span>
         </label>
-        <input id="advDays" type="number" min="1" value="60"
-               class="border rounded px-3 py-2 w-full text-sm">
+        <input id="advDays" type="number" min="1" value="60" class="border rounded px-3 py-2 w-full text-sm">
       </div>
 
-      <button id="irctcCalcBtn"
-        class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
+      <button id="irctcCalcBtn" class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
         Calculate booking opening date
       </button>
 
       <div id="irctcResult" class="mt-3 text-sm font-medium"></div>
       <p class="text-[11px] text-slate-500 mt-2">
-        Note: This is an approximate helper tool only. Actual booking window and timing depend on official IRCTC policies, train type and quota.
+        Note: This is an approximate helper tool only. Actual booking window and timing depend on official IRCTC
+        policies, train type and quota.
       </p>
     </section>
 
@@ -138,4 +146,5 @@
     });
   </script>
 </body>
+
 </html>
