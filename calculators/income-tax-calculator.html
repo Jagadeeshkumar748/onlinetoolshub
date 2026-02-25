@@ -14,13 +14,14 @@
     gtag('config', 'G-BLT2CG7JZ8');
   </script>
   <meta charset="UTF-8">
-  <title>RD Calculator | Online Tools Hub</title>
-  <meta name="description" content="Recurring Deposit calculator to estimate maturity amount and interest earned.">
+  <title>Income Tax Calculator 2025-26 | Online Tools Hub</title>
+  <meta name="description"
+    content="Calculate income tax for FY 2025-26 under Old and New regime. Includes latest tax slabs, cess and standard deduction for salaried individuals.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="https://onlinetoolshub.in/calculators/rd-calculator.html">
-  <meta property="og:title" content="RD Calculator | Online Tools Hub">
-  <meta property="og:description" content="Recurring Deposit calculator to estimate maturity amount and interest earned.">
-  <meta property="og:url" content="https://onlinetoolshub.in/calculators/rd-calculator.html">
+  <link rel="canonical" href="https://onlinetoolshub.in/calculators/income-tax-calculator.html">
+  <meta property="og:title" content="Income Tax Calculator 2025-26 | Online Tools Hub">
+  <meta property="og:description" content="Calculate income tax for FY 2025-26 under Old and New regime with latest tax slabs.">
+  <meta property="og:url" content="https://onlinetoolshub.in/calculators/income-tax-calculator.html">
   <meta property="og:type" content="website">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -42,10 +43,11 @@
     </div>
   </header>
 
+  <!-- Main -->
   <main class="max-w-2xl mx-auto px-4 py-8">
-    <h1 class="text-2xl font-semibold mb-2">RD Calculator</h1>
+    <h1 class="text-2xl font-semibold mb-2">Income Tax Calculator 2025-26</h1>
     <p class="text-sm text-slate-600 mb-4">
-      Calculate maturity amount for your Recurring Deposit (monthly investment).
+      Calculate your income tax liability for FY 2025-26 under Old or New regime with the latest tax slabs.
     </p>
 
     <div class="my-4">
@@ -58,27 +60,35 @@
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
-    <section class="bg-white rounded-lg shadow p-4 mb-6 space-y-3">
-      <div>
-        <label class="block text-sm mb-1">Monthly deposit (₹)</label>
-        <input id="rdMonthly" type="number" class="border rounded px-3 py-2 w-full text-sm">
+    <!-- Calculator card -->
+    <section class="bg-white rounded-lg shadow p-4 mb-6">
+
+      <label class="block text-sm mb-1">Annual Income (&#8377;)</label>
+      <input id="income" type="number" min="0" class="border rounded px-3 py-2 w-full mb-3 text-sm" placeholder="e.g. 1200000">
+
+      <label class="block text-sm mb-1">Age Group</label>
+      <select id="age" class="border rounded px-3 py-2 w-full mb-3 text-sm">
+        <option value="below60">Below 60 years</option>
+        <option value="60to80">60 to 80 years (Senior Citizen)</option>
+        <option value="above80">Above 80 years (Super Senior Citizen)</option>
+      </select>
+
+      <label class="block text-sm mb-1">Tax Regime</label>
+      <div class="flex gap-4 mb-3">
+        <label class="flex items-center gap-1 text-sm cursor-pointer">
+          <input type="radio" name="regime" value="new" checked class="accent-blue-600"> New Regime
+        </label>
+        <label class="flex items-center gap-1 text-sm cursor-pointer">
+          <input type="radio" name="regime" value="old" class="accent-blue-600"> Old Regime
+        </label>
       </div>
 
-      <div>
-        <label class="block text-sm mb-1">Interest rate (% per year)</label>
-        <input id="rdRate" type="number" step="0.01" class="border rounded px-3 py-2 w-full text-sm">
-      </div>
-
-      <div>
-        <label class="block text-sm mb-1">Tenure (years)</label>
-        <input id="rdYears" type="number" class="border rounded px-3 py-2 w-full text-sm">
-      </div>
-
-      <button id="rdBtn" class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
-        Calculate RD
+      <button id="calcBtn" class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
+        Calculate Tax
       </button>
 
-      <div id="rdResult" class="mt-4 text-sm font-medium space-y-1"></div>
+      <div id="result" class="mt-4 text-sm font-medium"></div>
+
     </section>
 
     <div class="my-4">
@@ -93,40 +103,40 @@
 
     <!-- SEO Content -->
     <section class="mt-6 mb-6 text-sm text-slate-700 leading-relaxed">
-      <h2 class="font-semibold text-base mt-4 mb-2">What is a Recurring Deposit (RD)?</h2>
-      <p>A Recurring Deposit (RD) is a type of term deposit offered by banks in India that allows you to invest a fixed amount every month for a predetermined period. At the end of the tenure, you receive the total amount deposited along with the accumulated interest. RDs are ideal for salaried individuals who want to save regularly with guaranteed returns without exposure to market risk.</p>
+      <h2 class="font-semibold text-base mt-4 mb-2">Income Tax in India - FY 2025-26</h2>
+      <p>Income tax in India is levied by the central government on the income earned by individuals, Hindu Undivided Families (HUFs), companies and other entities. For the financial year 2025-26 (assessment year 2026-27), taxpayers can choose between the Old Tax Regime and the New Tax Regime. The new regime is the default regime and offers lower tax rates but does not allow most deductions and exemptions that the old regime provides.</p>
 
-      <h2 class="font-semibold text-base mt-4 mb-2">How to Use This RD Calculator</h2>
-      <p>1. Enter the monthly deposit amount in INR.</p>
-      <p>2. Enter the annual interest rate offered by your bank.</p>
-      <p>3. Enter the tenure in years.</p>
-      <p>4. Click "Calculate RD" to see the maturity amount, total investment and interest earned.</p>
+      <h2 class="font-semibold text-base mt-4 mb-2">New Tax Regime Slabs (FY 2025-26)</h2>
+      <p>The new tax regime for FY 2025-26 has the following slabs: Income up to Rs. 4,00,000 is tax-free. Rs. 4,00,001 to Rs. 8,00,000 is taxed at 5%. Rs. 8,00,001 to Rs. 12,00,000 at 10%. Rs. 12,00,001 to Rs. 16,00,000 at 15%. Rs. 16,00,001 to Rs. 20,00,000 at 20%. Rs. 20,00,001 to Rs. 24,00,000 at 25%. Income above Rs. 24,00,000 is taxed at 30%. A standard deduction of Rs. 75,000 is available for salaried individuals under the new regime.</p>
 
-      <h2 class="font-semibold text-base mt-4 mb-2">RD Formula</h2>
-      <p>The maturity value of a Recurring Deposit is calculated using: <strong>M = P x [{(1 + r)<sup>n</sup> - 1} / r] x (1 + r)</strong>, where P is the monthly installment, r is the monthly interest rate (annual rate / 12 / 100), and n is the total number of months. This formula accounts for monthly compounding of interest on each installment.</p>
+      <h2 class="font-semibold text-base mt-4 mb-2">Old Tax Regime Slabs</h2>
+      <p>Under the old regime, for individuals below 60 years: income up to Rs. 2,50,000 is exempt, Rs. 2,50,001 to Rs. 5,00,000 is taxed at 5%, Rs. 5,00,001 to Rs. 10,00,000 at 20%, and above Rs. 10,00,000 at 30%. Senior citizens (60-80 years) get an exemption up to Rs. 3,00,000, while super senior citizens (above 80) get exemption up to Rs. 5,00,000. The old regime allows deductions under Section 80C (up to Rs. 1.5 lakh), 80D, HRA exemption and more.</p>
+
+      <h2 class="font-semibold text-base mt-4 mb-2">Health and Education Cess</h2>
+      <p>A 4% Health and Education Cess is levied on the total income tax amount (including surcharge, if applicable). This cess is used to fund health and education initiatives across India. The cess applies equally under both the old and new tax regimes.</p>
 
       <h2 class="font-semibold text-base mt-4 mb-2">Frequently Asked Questions</h2>
 
-      <h3 class="font-semibold text-sm mt-3 mb-1">What is the difference between RD and FD?</h3>
-      <p>In an FD, you deposit a lump sum amount at once, while in an RD, you deposit a fixed amount every month. RDs are better suited for those who cannot invest a large sum upfront but want to build savings over time. FDs generally offer slightly higher interest rates than RDs.</p>
+      <h3 class="font-semibold text-sm mt-3 mb-1">Which regime is better - Old or New?</h3>
+      <p>If you have significant deductions (80C, 80D, HRA, home loan interest) totalling more than Rs. 3-4 lakh, the old regime may save more tax. If you have minimal deductions, the new regime with its lower rates is usually better. Use this calculator to compare both.</p>
 
-      <h3 class="font-semibold text-sm mt-3 mb-1">Can I withdraw from my RD before maturity?</h3>
-      <p>Yes, most banks allow premature withdrawal of RD, but a penalty (usually 0.5-1% reduction in interest rate) is applied. Some banks also allow partial withdrawal or offer a loan against RD. Check with your bank for specific terms.</p>
+      <h3 class="font-semibold text-sm mt-3 mb-1">Is standard deduction available in both regimes?</h3>
+      <p>Yes, standard deduction is available in both regimes for FY 2025-26. Under the new regime it is Rs. 75,000, and under the old regime it is Rs. 50,000 for salaried individuals.</p>
 
-      <h3 class="font-semibold text-sm mt-3 mb-1">Is RD interest taxable?</h3>
-      <p>Yes, interest earned on RDs is taxable under "Income from Other Sources" as per your tax slab. TDS is deducted by the bank if the interest exceeds Rs 40,000 in a financial year (Rs 50,000 for senior citizens).</p>
+      <h3 class="font-semibold text-sm mt-3 mb-1">What is surcharge on income tax?</h3>
+      <p>Surcharge is an additional tax on income tax for high-income earners. For income between Rs. 50 lakh to Rs. 1 crore, it is 10%. Between Rs. 1 crore and Rs. 2 crore, it is 15%. The maximum surcharge rate under the new regime is capped at 25%. This calculator provides a basic estimate without surcharge.</p>
     </section>
 
+    <!-- Related tools -->
     <section class="mt-8">
       <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
       <div class="flex flex-wrap gap-2 text-xs">
-        <a href="/calculators/fd-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">FD
-          Calculator</a>
-        <a href="/calculators/sip-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">SIP
-          Calculator</a>
-        <a href="/calculators/loan-emi-calculator.html"
-          class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">EMI Calculator</a>
-        <a href="/index.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Home</a>
+        <a href="/calculators/salary-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Salary Calculator</a>
+        <a href="/calculators/hra-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">HRA Calculator</a>
+        <a href="/calculators/gratuity-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Gratuity Calculator</a>
+        <a href="/calculators/ppf-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">PPF Calculator</a>
+        <a href="/calculators/compound-interest-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Compound Interest Calculator</a>
+        <a href="/calculators/sip-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">SIP Calculator</a>
       </div>
     </section>
 
@@ -152,12 +162,12 @@
         <a href="/calculators/pregnancy-due-date-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Pregnancy Due Date</div><p class="text-[11px] text-slate-500 mt-0.5">Estimate due date from last period</p></a>
         <a href="/calculators/date-difference-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Date Difference</div><p class="text-[11px] text-slate-500 mt-0.5">Find days between two dates</p></a>
         <a href="/calculators/irctc-60-days-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">IRCTC 60 Days</div><p class="text-[11px] text-slate-500 mt-0.5">Find booking date for train tickets</p></a>
-        <a href="/calculators/compound-interest-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Compound Interest</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate compound interest with flexible compounding</p></a>
-        <a href="/calculators/ppf-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">PPF Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Public Provident Fund maturity and interest</p></a>
-        <a href="/calculators/gratuity-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Gratuity Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate gratuity based on salary and tenure</p></a>
-        <a href="/calculators/hra-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">HRA Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Find HRA exemption for tax saving</p></a>
+        <a href="/calculators/compound-interest-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Compound Interest</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate compound interest and maturity</p></a>
+        <a href="/calculators/ppf-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">PPF Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Public Provident Fund maturity value</p></a>
+        <a href="/calculators/gratuity-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Gratuity Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate gratuity amount on retirement</p></a>
+        <a href="/calculators/hra-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">HRA Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate HRA exemption for tax saving</p></a>
         <a href="/calculators/salary-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Salary Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">CTC to in-hand salary breakdown</p></a>
-        <a href="/calculators/income-tax-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Income Tax Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate tax under Old and New regime</p></a>
+        <a href="/calculators/income-tax-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Income Tax Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate income tax for FY 2025-26</p></a>
       </div>
       <div id="cat-text-tools" class="cat-panel hidden grid gap-2 sm:grid-cols-2 md:grid-cols-3">
         <a href="/tools/word-counter.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Word Counter</div><p class="text-[11px] text-slate-500 mt-0.5">Count words, characters, lines and paragraphs</p></a>
@@ -182,6 +192,7 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="border-t mt-10">
     <div class="max-w-5xl mx-auto px-4 py-4 text-xs text-slate-500 flex justify-between">
       <span>&copy; <span id="year"></span> OnlineToolsHub.in</span>
@@ -211,36 +222,131 @@
     });
 
     function formatMoney(num) {
-      return Number(num).toLocaleString('en-IN', {
-        maximumFractionDigits: 0
-      });
+      return Number(num).toLocaleString('en-IN', { maximumFractionDigits: 0 });
     }
 
-    document.getElementById('rdBtn').addEventListener('click', () => {
-      const P = parseFloat(document.getElementById('rdMonthly').value);
-      const R = parseFloat(document.getElementById('rdRate').value);
-      const Y = parseFloat(document.getElementById('rdYears').value);
-      const res = document.getElementById('rdResult');
+    /* Income Tax Calculator Logic */
+    const calcBtn = document.getElementById('calcBtn');
+    const resultEl = document.getElementById('result');
 
-      if (!P || !R || !Y) {
-        res.textContent = 'Please fill all fields.';
+    function calcNewRegimeTax(taxableIncome) {
+      // New Regime FY 2025-26 slabs
+      // 0-4L: 0%, 4-8L: 5%, 8-12L: 10%, 12-16L: 15%, 16-20L: 20%, 20-24L: 25%, >24L: 30%
+      // Standard deduction: 75,000
+      var income = taxableIncome - 75000; // Standard deduction
+      if (income < 0) income = 0;
+
+      var tax = 0;
+      if (income > 2400000) {
+        tax += (income - 2400000) * 0.30;
+        income = 2400000;
+      }
+      if (income > 2000000) {
+        tax += (income - 2000000) * 0.25;
+        income = 2000000;
+      }
+      if (income > 1600000) {
+        tax += (income - 1600000) * 0.20;
+        income = 1600000;
+      }
+      if (income > 1200000) {
+        tax += (income - 1200000) * 0.15;
+        income = 1200000;
+      }
+      if (income > 800000) {
+        tax += (income - 800000) * 0.10;
+        income = 800000;
+      }
+      if (income > 400000) {
+        tax += (income - 400000) * 0.05;
+      }
+
+      // Section 87A rebate: if taxable income (after std deduction) <= 12L, tax = 0 under new regime
+      var incomeAfterSD = taxableIncome - 75000;
+      if (incomeAfterSD < 0) incomeAfterSD = 0;
+      if (incomeAfterSD <= 1200000) {
+        tax = 0;
+      }
+
+      return tax;
+    }
+
+    function calcOldRegimeTax(taxableIncome, ageGroup) {
+      // Old Regime slabs
+      // Below 60: 0-2.5L: 0%, 2.5-5L: 5%, 5-10L: 20%, >10L: 30%
+      // 60-80: 0-3L: 0%, 3-5L: 5%, 5-10L: 20%, >10L: 30%
+      // Above 80: 0-5L: 0%, 5-10L: 20%, >10L: 30%
+      // Standard deduction: 50,000 for old regime
+      var income = taxableIncome - 50000;
+      if (income < 0) income = 0;
+
+      var exemptLimit = 250000;
+      if (ageGroup === '60to80') exemptLimit = 300000;
+      if (ageGroup === 'above80') exemptLimit = 500000;
+
+      var tax = 0;
+      if (income > 1000000) {
+        tax += (income - 1000000) * 0.30;
+        income = 1000000;
+      }
+      if (income > 500000) {
+        tax += (income - 500000) * 0.20;
+        income = 500000;
+      }
+      if (income > exemptLimit) {
+        tax += (income - exemptLimit) * 0.05;
+      }
+
+      // Section 87A rebate for old regime: if taxable income <= 5L, rebate up to 12,500
+      var incomeAfterSD = taxableIncome - 50000;
+      if (incomeAfterSD < 0) incomeAfterSD = 0;
+      if (incomeAfterSD <= 500000) {
+        tax = Math.max(0, tax - 12500);
+      }
+
+      return tax;
+    }
+
+    calcBtn.addEventListener('click', function() {
+      var income = parseFloat(document.getElementById('income').value);
+      var ageGroup = document.getElementById('age').value;
+      var regime = document.querySelector('input[name="regime"]:checked').value;
+
+      if (!income || income < 0) {
+        resultEl.textContent = 'Please enter a valid annual income.';
         return;
       }
 
-      const r = R / 100 / 12;    // monthly
-      const n = Y * 12;          // months
+      var tax = 0;
+      var regimeName = '';
+      var stdDeduction = 0;
 
-      // RD maturity formula (similar to SIP formula without extra (1+r) at end in some banks,
-      // but SIP style is commonly used; we'll use SIP-style for consistency)
-      const maturity = P * (((1 + r) ** n - 1) / r) * (1 + r);
-      const invested = P * n;
-      const interest = maturity - invested;
+      if (regime === 'new') {
+        tax = calcNewRegimeTax(income);
+        regimeName = 'New Regime';
+        stdDeduction = 75000;
+      } else {
+        tax = calcOldRegimeTax(income, ageGroup);
+        regimeName = 'Old Regime';
+        stdDeduction = 50000;
+      }
 
-      res.innerHTML = `
-        <div>Maturity amount: <span class="font-semibold">₹${formatMoney(maturity)}</span></div>
-        <div>Total amount invested: <span class="font-semibold">₹${formatMoney(invested)}</span></div>
-        <div>Interest earned: <span class="font-semibold">₹${formatMoney(interest)}</span></div>
-      `;
+      // 4% Health & Education Cess
+      var cess = tax * 0.04;
+      var totalTax = tax + cess;
+      var effectiveRate = income > 0 ? ((totalTax / income) * 100).toFixed(2) : '0.00';
+
+      resultEl.innerHTML =
+        '<div class="space-y-1">' +
+        '<div class="text-slate-500 text-xs mb-2">Tax Calculation (' + regimeName + '):</div>' +
+        '<div>Gross Income: \u20B9' + formatMoney(income) + '</div>' +
+        '<div>Standard Deduction: -\u20B9' + formatMoney(stdDeduction) + '</div>' +
+        '<div>Taxable Income: \u20B9' + formatMoney(Math.max(0, income - stdDeduction)) + '</div>' +
+        '<div class="border-t pt-1 mt-2">Income Tax: \u20B9' + formatMoney(tax) + '</div>' +
+        '<div>Health &amp; Education Cess (4%): \u20B9' + formatMoney(cess) + '</div>' +
+        '<div class="font-bold text-blue-700">Total Tax Payable: \u20B9' + formatMoney(totalTax) + '</div>' +
+        '<div>Effective Tax Rate: ' + effectiveRate + '%</div>' +
+        '</div>';
     });
   </script>
 

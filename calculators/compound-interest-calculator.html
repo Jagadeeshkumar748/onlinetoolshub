@@ -14,13 +14,14 @@
     gtag('config', 'G-BLT2CG7JZ8');
   </script>
   <meta charset="UTF-8">
-  <title>Image Resizer | Online Tools Hub</title>
-  <meta name="description" content="Resize images by width and height directly in your browser.">
+  <title>Compound Interest Calculator | Online Tools Hub</title>
+  <meta name="description"
+    content="Calculate compound interest on your investment with yearly, half-yearly, quarterly or monthly compounding. Free online compound interest calculator.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="https://onlinetoolshub.in/image-tools/image-resizer.html">
-  <meta property="og:title" content="Image Resizer | Online Tools Hub">
-  <meta property="og:description" content="Resize images by width and height directly in your browser.">
-  <meta property="og:url" content="https://onlinetoolshub.in/image-tools/image-resizer.html">
+  <link rel="canonical" href="https://onlinetoolshub.in/calculators/compound-interest-calculator.html">
+  <meta property="og:title" content="Compound Interest Calculator | Online Tools Hub">
+  <meta property="og:description" content="Calculate compound interest on your investment with yearly, half-yearly, quarterly or monthly compounding.">
+  <meta property="og:url" content="https://onlinetoolshub.in/calculators/compound-interest-calculator.html">
   <meta property="og:type" content="website">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -43,10 +44,10 @@
   </header>
 
   <!-- Main -->
-  <main class="max-w-4xl mx-auto px-4 py-8">
-    <h1 class="text-2xl font-semibold mb-2">Image Resizer</h1>
+  <main class="max-w-2xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-semibold mb-2">Compound Interest Calculator</h1>
     <p class="text-sm text-slate-600 mb-4">
-      Resize an image by specifying new width and height. Works completely in your browser.
+      Calculate the maturity amount and total interest earned on your investment with compound interest.
     </p>
 
     <div class="my-4">
@@ -59,46 +60,32 @@
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
-    <section class="bg-white rounded-lg shadow p-4 mb-6 text-sm">
-      <label class="block mb-2 font-medium">Select an image</label>
-      <input id="resizeImgInput" type="file" accept="image/jpeg,image/png,image/webp"
-        class="block w-full text-xs text-slate-600 border rounded px-3 py-2 mb-3">
+    <!-- Calculator card -->
+    <section class="bg-white rounded-lg shadow p-4 mb-6">
 
-      <div id="resizeInfo" class="text-[11px] text-slate-500 mb-3"></div>
+      <label class="block text-sm mb-1">Principal Amount (&#8377;)</label>
+      <input id="principal" type="number" min="1" class="border rounded px-3 py-2 w-full mb-3 text-sm" placeholder="e.g. 100000">
 
-      <div class="grid gap-3 sm:grid-cols-3 text-xs mb-3">
-        <div>
-          <label class="block mb-1 font-medium">Width (px)</label>
-          <input id="newWidth" type="number" min="1" class="border rounded px-2 py-1 w-full">
-        </div>
-        <div>
-          <label class="block mb-1 font-medium">Height (px)</label>
-          <input id="newHeight" type="number" min="1" class="border rounded px-2 py-1 w-full">
-        </div>
-        <div class="flex items-center gap-2 mt-5 sm:mt-0">
-          <input id="keepRatio" type="checkbox" class="h-4 w-4" checked>
-          <label for="keepRatio">Keep aspect ratio</label>
-        </div>
-      </div>
+      <label class="block text-sm mb-1">Annual Interest Rate (%)</label>
+      <input id="rate" type="number" min="0.01" step="0.01" class="border rounded px-3 py-2 w-full mb-3 text-sm" placeholder="e.g. 8">
 
-      <button id="resizeBtn"
-        class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
-        disabled>
-        Resize image
+      <label class="block text-sm mb-1">Time Period (years)</label>
+      <input id="years" type="number" min="1" class="border rounded px-3 py-2 w-full mb-3 text-sm" placeholder="e.g. 5">
+
+      <label class="block text-sm mb-1">Compounding Frequency</label>
+      <select id="frequency" class="border rounded px-3 py-2 w-full mb-3 text-sm">
+        <option value="1">Yearly</option>
+        <option value="2">Half-Yearly</option>
+        <option value="4">Quarterly</option>
+        <option value="12">Monthly</option>
+      </select>
+
+      <button id="calcBtn" class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
+        Calculate
       </button>
 
-      <div id="resizeStatus" class="mt-3 text-[11px] text-slate-500"></div>
+      <div id="result" class="mt-4 text-sm font-medium"></div>
 
-      <div id="resizeResult" class="mt-4 hidden">
-        <h2 class="text-xs font-semibold mb-2">Resized preview</h2>
-        <img id="resizePreview" alt="Resized" class="max-w-full max-h-80 border rounded mb-2">
-        <div class="flex flex-wrap gap-2 text-xs">
-          <a id="resizeDownload" href="#" download="resized-image.jpg"
-            class="px-3 py-1.5 rounded bg-slate-100 hover:bg-slate-200 inline-block">
-            Download resized image
-          </a>
-        </div>
-      </div>
     </section>
 
     <div class="my-4">
@@ -111,39 +98,44 @@
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
+    <!-- SEO Content -->
     <section class="mt-6 mb-6 text-sm text-slate-700 leading-relaxed">
-      <h2 class="font-semibold text-base mt-4 mb-2">What is Image Resizing?</h2>
-      <p>Image resizing is the process of changing the dimensions (width and height in pixels) of an image. This is commonly needed when preparing images for social media platforms that require specific dimensions, optimizing images for website use to reduce loading times, or fitting images into presentations and documents. Maintaining the correct aspect ratio during resizing prevents the image from appearing stretched or distorted.</p>
+      <h2 class="font-semibold text-base mt-4 mb-2">What is Compound Interest?</h2>
+      <p>Compound interest is the interest calculated on both the initial principal and the accumulated interest from previous periods. Unlike simple interest which is computed only on the original principal, compound interest allows your money to grow faster because you earn interest on your interest. This concept is often called the "eighth wonder of the world" and is the foundation of long-term wealth creation in India.</p>
 
-      <h2 class="font-semibold text-base mt-4 mb-2">How to Use</h2>
-      <ol class="list-decimal list-inside space-y-1">
-        <li>Select an image file (JPG, PNG, or WebP) using the file picker above.</li>
-        <li>The tool will display the original dimensions. Enter your desired width and height in pixels.</li>
-        <li>Keep the "Keep aspect ratio" checkbox enabled to prevent distortion. Changing one dimension will automatically adjust the other.</li>
-        <li>Click "Resize image" to generate the resized version, then download it.</li>
-      </ol>
+      <h2 class="font-semibold text-base mt-4 mb-2">Compound Interest Formula</h2>
+      <p>The formula for compound interest is: <strong>A = P(1 + r/n)^(nt)</strong>, where:</p>
+      <p>A = Maturity Amount (future value), P = Principal (initial investment), r = Annual interest rate (in decimal), n = Number of times interest is compounded per year, t = Time period in years.</p>
+      <p>The total interest earned is calculated as: <strong>Interest = A - P</strong>.</p>
+
+      <h2 class="font-semibold text-base mt-4 mb-2">Compound Interest vs Simple Interest</h2>
+      <p>Simple interest is calculated only on the original principal using the formula SI = P x R x T / 100. With compound interest, the interest earned in each period is added to the principal, so you earn interest on a growing balance. Over longer time periods, compound interest generates significantly higher returns than simple interest. For example, Rs. 1,00,000 at 10% for 10 years gives Rs. 1,00,000 as simple interest but Rs. 1,59,374 as compound interest (compounded annually).</p>
+
+      <h2 class="font-semibold text-base mt-4 mb-2">Rule of 72</h2>
+      <p>The Rule of 72 is a quick way to estimate how long it takes to double your money with compound interest. Simply divide 72 by the annual interest rate. For example, at 8% interest, your money doubles in approximately 72/8 = 9 years. This rule is a useful shortcut for financial planning and comparing different investment options.</p>
 
       <h2 class="font-semibold text-base mt-4 mb-2">Frequently Asked Questions</h2>
-      <h3 class="font-semibold text-sm mt-3 mb-1">What is aspect ratio and why does it matter?</h3>
-      <p>Aspect ratio is the proportional relationship between an image's width and height. Maintaining the aspect ratio when resizing ensures the image does not appear stretched or squished. For example, a 1920x1080 image has a 16:9 aspect ratio.</p>
 
-      <h3 class="font-semibold text-sm mt-3 mb-1">Will resizing reduce image quality?</h3>
-      <p>Reducing the size of an image generally preserves quality well. However, enlarging an image beyond its original dimensions can result in pixelation and blurriness because the tool has to create new pixel data that did not exist in the original.</p>
+      <h3 class="font-semibold text-sm mt-3 mb-1">Which compounding frequency gives the best returns?</h3>
+      <p>Monthly compounding gives higher returns than quarterly, half-yearly or yearly compounding because interest is added to the principal more frequently, leading to a higher effective interest rate.</p>
 
-      <h3 class="font-semibold text-sm mt-3 mb-1">Is my image uploaded to a server?</h3>
-      <p>No. All resizing happens entirely in your browser using the HTML5 Canvas API. Your image never leaves your device, ensuring complete privacy.</p>
+      <h3 class="font-semibold text-sm mt-3 mb-1">Where is compound interest used in India?</h3>
+      <p>Compound interest is used in fixed deposits, recurring deposits, PPF, mutual funds, savings accounts and most bank loan calculations. Understanding compound interest helps you make better investment decisions.</p>
+
+      <h3 class="font-semibold text-sm mt-3 mb-1">Is compound interest better for investments or loans?</h3>
+      <p>Compound interest benefits investors as their money grows faster. However, for loans, compound interest means you pay more over time. It is always advisable to invest early and repay loans quickly to take advantage of compounding.</p>
     </section>
 
-    <section class="mt-6">
+    <!-- Related tools -->
+    <section class="mt-8">
       <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
       <div class="flex flex-wrap gap-2 text-xs">
-        <a href="/image-tools/image-compressor.html"
-          class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Image Compressor</a>
-        <a href="/image-tools/image-format-converter.html"
-          class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Image Format Converter</a>
-        <a href="/pdf-tools/image-to-pdf.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Image to
-          PDF</a>
-        <a href="/index.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Home</a>
+        <a href="/calculators/sip-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">SIP Calculator</a>
+        <a href="/calculators/fd-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">FD Calculator</a>
+        <a href="/calculators/ppf-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">PPF Calculator</a>
+        <a href="/calculators/rd-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">RD Calculator</a>
+        <a href="/calculators/loan-emi-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Loan EMI Calculator</a>
+        <a href="/calculators/income-tax-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Income Tax Calculator</a>
       </div>
     </section>
 
@@ -151,12 +143,12 @@
     <section class="mt-8 mb-4">
       <h2 class="font-semibold mb-3 text-sm">Explore all tools</h2>
       <div class="flex flex-wrap gap-2 mb-4">
-        <button class="cat-tab px-3 py-1.5 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700" data-cat="calculators">Calculators</button>
+        <button class="cat-tab px-3 py-1.5 rounded-full text-xs font-medium bg-blue-600 text-white" data-cat="calculators">Calculators</button>
         <button class="cat-tab px-3 py-1.5 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700" data-cat="text-tools">Text &amp; Dev Tools</button>
         <button class="cat-tab px-3 py-1.5 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700" data-cat="pdf-tools">PDF Tools</button>
-        <button class="cat-tab px-3 py-1.5 rounded-full text-xs font-medium bg-blue-600 text-white" data-cat="image-tools">Image Tools</button>
+        <button class="cat-tab px-3 py-1.5 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700" data-cat="image-tools">Image Tools</button>
       </div>
-      <div id="cat-calculators" class="cat-panel hidden grid gap-2 sm:grid-cols-2 md:grid-cols-3">
+      <div id="cat-calculators" class="cat-panel grid gap-2 sm:grid-cols-2 md:grid-cols-3">
         <a href="/calculators/age-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Age Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Find exact age in years, months and days</p></a>
         <a href="/calculators/bmi-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">BMI Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Check Body Mass Index and weight range</p></a>
         <a href="/calculators/loan-emi-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Loan EMI Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Monthly EMI for home, car or personal loan</p></a>
@@ -169,12 +161,12 @@
         <a href="/calculators/pregnancy-due-date-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Pregnancy Due Date</div><p class="text-[11px] text-slate-500 mt-0.5">Estimate due date from last period</p></a>
         <a href="/calculators/date-difference-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Date Difference</div><p class="text-[11px] text-slate-500 mt-0.5">Find days between two dates</p></a>
         <a href="/calculators/irctc-60-days-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">IRCTC 60 Days</div><p class="text-[11px] text-slate-500 mt-0.5">Find booking date for train tickets</p></a>
-        <a href="/calculators/compound-interest-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Compound Interest</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate compound interest with flexible compounding</p></a>
-        <a href="/calculators/ppf-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">PPF Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Public Provident Fund maturity and interest</p></a>
-        <a href="/calculators/gratuity-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Gratuity Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate gratuity based on salary and tenure</p></a>
-        <a href="/calculators/hra-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">HRA Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Find HRA exemption for tax saving</p></a>
+        <a href="/calculators/compound-interest-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Compound Interest</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate compound interest and maturity</p></a>
+        <a href="/calculators/ppf-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">PPF Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Public Provident Fund maturity value</p></a>
+        <a href="/calculators/gratuity-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Gratuity Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate gratuity amount on retirement</p></a>
+        <a href="/calculators/hra-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">HRA Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate HRA exemption for tax saving</p></a>
         <a href="/calculators/salary-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Salary Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">CTC to in-hand salary breakdown</p></a>
-        <a href="/calculators/income-tax-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Income Tax Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate tax under Old and New regime</p></a>
+        <a href="/calculators/income-tax-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Income Tax Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate income tax for FY 2025-26</p></a>
       </div>
       <div id="cat-text-tools" class="cat-panel hidden grid gap-2 sm:grid-cols-2 md:grid-cols-3">
         <a href="/tools/word-counter.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Word Counter</div><p class="text-[11px] text-slate-500 mt-0.5">Count words, characters, lines and paragraphs</p></a>
@@ -191,7 +183,7 @@
         <a href="/pdf-tools/pdf-compress.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Compress PDF</div><p class="text-[11px] text-slate-500 mt-0.5">Reduce PDF file size for sharing</p></a>
         <a href="/pdf-tools/image-to-pdf.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Image to PDF</div><p class="text-[11px] text-slate-500 mt-0.5">Convert JPG/PNG images into a PDF</p></a>
       </div>
-      <div id="cat-image-tools" class="cat-panel grid gap-2 sm:grid-cols-2 md:grid-cols-3">
+      <div id="cat-image-tools" class="cat-panel hidden grid gap-2 sm:grid-cols-2 md:grid-cols-3">
         <a href="/image-tools/image-compressor.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Image Compressor</div><p class="text-[11px] text-slate-500 mt-0.5">Compress JPG/PNG images in browser</p></a>
         <a href="/image-tools/image-resizer.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Image Resizer</div><p class="text-[11px] text-slate-500 mt-0.5">Resize images by width and height</p></a>
         <a href="/image-tools/image-format-converter.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Image Format Converter</div><p class="text-[11px] text-slate-500 mt-0.5">Convert between JPG, PNG and WebP</p></a>
@@ -228,95 +220,39 @@
       });
     });
 
-    const resizeImgInput = document.getElementById('resizeImgInput');
-    const resizeBtn = document.getElementById('resizeBtn');
-    const resizeInfo = document.getElementById('resizeInfo');
-    const resizeStatus = document.getElementById('resizeStatus');
-    const newWidth = document.getElementById('newWidth');
-    const newHeight = document.getElementById('newHeight');
-    const keepRatio = document.getElementById('keepRatio');
-    const resizeResult = document.getElementById('resizeResult');
-    const resizePreview = document.getElementById('resizePreview');
-    const resizeDownload = document.getElementById('resizeDownload');
+    function formatMoney(num) {
+      return Number(num).toLocaleString('en-IN', { maximumFractionDigits: 0 });
+    }
 
-    let originalImg = null;
-    let origWidth = 0;
-    let origHeight = 0;
+    /* Compound Interest Calculator Logic */
+    const calcBtn = document.getElementById('calcBtn');
+    const resultEl = document.getElementById('result');
 
-    resizeImgInput.addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      originalImg = null;
-      resizeInfo.textContent = '';
-      resizeStatus.textContent = '';
-      resizeResult.classList.add('hidden');
-      resizeBtn.disabled = true;
+    calcBtn.addEventListener('click', function() {
+      const P = parseFloat(document.getElementById('principal').value);
+      const R = parseFloat(document.getElementById('rate').value);
+      const T = parseFloat(document.getElementById('years').value);
+      const N = parseInt(document.getElementById('frequency').value);
 
-      if (!file) return;
-      if (!file.type.startsWith('image/')) {
-        resizeInfo.textContent = 'Please select a valid image file.';
+      if (!P || P <= 0 || !R || R <= 0 || !T || T <= 0) {
+        resultEl.textContent = 'Please fill all fields with valid values.';
         return;
       }
 
-      const img = new Image();
-      img.onload = () => {
-        originalImg = img;
-        origWidth = img.width;
-        origHeight = img.height;
-        resizeInfo.textContent = `Original size: ${origWidth} × ${origHeight}px (${Math.round(file.size / 1024)} KB)`;
-        newWidth.value = origWidth;
-        newHeight.value = origHeight;
-        resizeBtn.disabled = false;
-      };
+      const r = R / 100;
+      // A = P(1 + r/n)^(nt)
+      const A = P * Math.pow((1 + r / N), N * T);
+      const interest = A - P;
 
-      const reader = new FileReader();
-      reader.onload = (ev) => {
-        img.src = ev.target.result;
-      };
-      reader.readAsDataURL(file);
-    });
-
-    newWidth.addEventListener('input', () => {
-      if (!keepRatio.checked || !origWidth || !origHeight) return;
-      const w = parseInt(newWidth.value, 10);
-      if (!w) return;
-      const h = Math.round((origHeight / origWidth) * w);
-      newHeight.value = h;
-    });
-
-    newHeight.addEventListener('input', () => {
-      if (!keepRatio.checked || !origWidth || !origHeight) return;
-      const h = parseInt(newHeight.value, 10);
-      if (!h) return;
-      const w = Math.round((origWidth / origHeight) * h);
-      newWidth.value = w;
-    });
-
-    resizeBtn.addEventListener('click', () => {
-      if (!originalImg) return;
-      const w = parseInt(newWidth.value, 10);
-      const h = parseInt(newHeight.value, 10);
-      if (!w || !h || w <= 0 || h <= 0) {
-        resizeStatus.textContent = 'Please enter valid width and height.';
-        return;
-      }
-
-      const canvas = document.createElement('canvas');
-      canvas.width = w;
-      canvas.height = h;
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(originalImg, 0, 0, w, h);
-
-      canvas.toBlob((blob) => {
-        if (!blob) return;
-        const url = URL.createObjectURL(blob);
-        resizePreview.src = url;
-        resizeResult.classList.remove('hidden');
-        resizeDownload.href = url;
-        resizeDownload.download = 'resized-image.jpg';
-        resizeStatus.textContent = `Resized to ${w} × ${h}px (${Math.round(blob.size / 1024)} KB).`;
-      }, 'image/jpeg', 0.9);
+      resultEl.innerHTML =
+        '<div class="space-y-1">' +
+        '<div>Principal Amount: <span class="text-slate-900">\u20B9' + formatMoney(P) + '</span></div>' +
+        '<div>Total Interest Earned: <span class="text-green-700">\u20B9' + formatMoney(interest) + '</span></div>' +
+        '<div>Maturity Amount: <span class="text-blue-700 font-bold">\u20B9' + formatMoney(A) + '</span></div>' +
+        '</div>';
     });
   </script>
+
 </body>
 
 </html>

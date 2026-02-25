@@ -99,6 +99,37 @@
     <changefreq>monthly</changefreq>
   </url>
 
+  <url>
+    <loc>https://onlinetoolshub.in/calculators/compound-interest-calculator.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://onlinetoolshub.in/calculators/ppf-calculator.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://onlinetoolshub.in/calculators/gratuity-calculator.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://onlinetoolshub.in/calculators/hra-calculator.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://onlinetoolshub.in/calculators/salary-calculator.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://onlinetoolshub.in/calculators/income-tax-calculator.html</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+
   <!-- Text & Developer Tools -->
   <url>
     <loc>https://onlinetoolshub.in/tools/word-counter.html</loc>
