@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7993013934848254"
+     crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLT2CG7JZ8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-BLT2CG7JZ8');
+  </script>
+  <meta charset="UTF-8">
+  <title>Work Hour Calculator - Calculate Working Hours &amp; Pay | OnlineToolsHub</title>
+  <meta name="description" content="Calculate total work hours, overtime and pay. Add multiple day entries, set break duration and hourly rate. Get daily breakdown and weekly totals with Indian number formatting.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://onlinetoolshub.in/calculators/work-hour-calculator.html">
+  <meta property="og:title" content="Work Hour Calculator - Calculate Working Hours &amp; Pay | OnlineToolsHub">
+  <meta property="og:description" content="Calculate total work hours, overtime and pay. Add multiple day entries, set break duration and hourly rate.">
+  <meta property="og:url" content="https://onlinetoolshub.in/calculators/work-hour-calculator.html">
+  <meta property="og:type" content="website">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+
+  <!-- Header -->
+  <header class="w-full border-b bg-white">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="/index.html" class="font-semibold text-lg">
+        Online<span class="text-blue-600">Tools</span>Hub
+      </a>
+
+      <nav class="flex gap-4 text-sm">
+        <a href="/index.html" class="hover:text-blue-600">Home</a>
+        <a href="/pages/about.html" class="hover:text-blue-600">About</a>
+        <a href="/pages/contact.html" class="hover:text-blue-600">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-2xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-semibold mb-2">Work Hour Calculator</h1>
+    <p class="text-sm text-slate-600 mb-4">
+      Calculate total working hours, overtime and pay. Add multiple day entries with breaks.
+    </p>
+
+    <div class="my-4">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-7993013934848254"
+           data-ad-slot="8309938384"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="bg-white rounded-lg shadow p-4 mb-6">
+      <!-- Hourly Rate -->
+      <div class="mb-4">
+        <label class="block text-sm mb-1">Hourly Rate (&#8377;) <span class="text-slate-400">(optional)</span></label>
+        <input id="hourlyRate" type="number" min="0" step="0.01" class="border rounded px-3 py-2 w-full text-sm" placeholder="e.g. 500">
+      </div>
+
+      <!-- Entries Header -->
+      <div class="grid grid-cols-12 gap-2 mb-2 text-xs font-medium text-slate-500">
+        <div class="col-span-2">Day</div>
+        <div class="col-span-3">Start Time</div>
+        <div class="col-span-3">End Time</div>
+        <div class="col-span-3">Break (min)</div>
+        <div class="col-span-1"></div>
+      </div>
+
+      <!-- Entry Rows Container -->
+      <div id="entriesContainer"></div>
+
+      <div class="flex gap-2 mt-3 mb-4">
+        <button id="addRowBtn" class="bg-slate-100 text-slate-700 text-xs px-3 py-2 rounded hover:bg-slate-200">
+          + Add Row
+        </button>
+        <button id="clearAllBtn" class="bg-slate-100 text-slate-700 text-xs px-3 py-2 rounded hover:bg-slate-200">
+          Clear All
+        </button>
+      </div>
+
+      <button id="calcBtn" class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">
+        Calculate Hours &amp; Pay
+      </button>
+
+      <div id="workResult" class="mt-4 text-sm"></div>
+    </section>
+
+    <div class="my-4">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-7993013934848254"
+           data-ad-slot="8309938384"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="mt-6 mb-6 text-sm text-slate-700 leading-relaxed">
+      <h2 class="font-semibold text-base mt-4 mb-2">What is a Work Hour Calculator?</h2>
+      <p>A work hour calculator helps employees, freelancers and employers track working hours accurately. It calculates the total hours worked after deducting break time, identifies overtime hours (any hours exceeding 8 hours in a day), and computes regular pay, overtime pay (at 1.5x the hourly rate) and total pay. This is especially useful for hourly workers, part-time employees and freelancers who need to track billable hours.</p>
+
+      <h2 class="font-semibold text-base mt-4 mb-2">How to Use This Calculator</h2>
+      <p>Enter the start time, end time and break duration for each working day. You can add multiple rows for different days of the week using the "Add Row" button. Optionally enter your hourly rate to see pay calculations. Click "Calculate Hours &amp; Pay" to see the daily breakdown with regular and overtime hours, along with weekly totals. Pay is displayed in Indian number format.</p>
+
+      <h2 class="font-semibold text-base mt-4 mb-2">Formula</h2>
+      <p><strong>Work Hours = End Time - Start Time - Break Duration</strong></p>
+      <p><strong>Regular Hours = min(Work Hours, 8)</strong></p>
+      <p><strong>Overtime Hours = max(Work Hours - 8, 0)</strong></p>
+      <p><strong>Regular Pay = Regular Hours x Hourly Rate</strong></p>
+      <p><strong>Overtime Pay = Overtime Hours x Hourly Rate x 1.5</strong></p>
+      <p><strong>Total Pay = Regular Pay + Overtime Pay</strong></p>
+
+      <h2 class="font-semibold text-base mt-4 mb-2">Frequently Asked Questions</h2>
+
+      <h3 class="font-semibold text-sm mt-3 mb-1">What counts as overtime?</h3>
+      <p>In this calculator, any hours worked beyond 8 hours in a single day are counted as overtime. Overtime is typically paid at 1.5 times the regular hourly rate, which is the standard overtime multiplier in many regions.</p>
+
+      <h3 class="font-semibold text-sm mt-3 mb-1">Can I calculate for a full week?</h3>
+      <p>Yes. Click "Add Row" to add entries for each day of the week. The calculator will show a daily breakdown and compute weekly totals for hours, regular pay, overtime pay and total pay.</p>
+
+      <h3 class="font-semibold text-sm mt-3 mb-1">Is the hourly rate required?</h3>
+      <p>No. The hourly rate is optional. If you only need to track hours worked and overtime, you can leave the hourly rate field empty. Pay calculations will only appear when a rate is provided.</p>
+    </section>
+
+    <!-- Related -->
+    <section class="mt-8">
+      <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <a href="/calculators/salary-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Salary Calculator</a>
+        <a href="/calculators/time-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Time Calculator</a>
+        <a href="/calculators/salary-hike-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Salary Hike Calculator</a>
+        <a href="/calculators/gratuity-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Gratuity Calculator</a>
+        <a href="/calculators/income-tax-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Income Tax Calculator</a>
+      </div>
+    </section>
+
+    <!-- Explore all tools -->
+    <section class="mt-8 mb-4">
+      <h2 class="font-semibold mb-3 text-sm">Explore all tools</h2>
+      <div class="flex flex-wrap gap-2 mb-4">
+        <button class="cat-tab px-3 py-1.5 rounded-full text-xs font-medium bg-blue-600 text-white" data-cat="calculators">Calculators</button>
+        <button class="cat-tab px-3 py-1.5 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700" data-cat="text-tools">Text &amp; Dev Tools</button>
+        <button class="cat-tab px-3 py-1.5 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700" data-cat="pdf-tools">PDF Tools</button>
+        <button class="cat-tab px-3 py-1.5 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700" data-cat="image-tools">Image Tools</button>
+      </div>
+      <div id="cat-calculators" class="cat-panel grid gap-2 sm:grid-cols-2 md:grid-cols-3">
+        <a href="/calculators/age-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Age Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Find exact age in years, months and days</p></a>
+        <a href="/calculators/bmi-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">BMI Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Check Body Mass Index and weight range</p></a>
+        <a href="/calculators/loan-emi-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Loan EMI Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Monthly EMI for home, car or personal loan</p></a>
+        <a href="/calculators/sip-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">SIP Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Estimate future value of SIP investment</p></a>
+        <a href="/calculators/fd-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">FD Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Fixed Deposit maturity and interest</p></a>
+        <a href="/calculators/rd-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">RD Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Recurring Deposit maturity and interest</p></a>
+        <a href="/calculators/gst-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">GST Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Add or remove GST from any amount</p></a>
+        <a href="/calculators/percentage-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Percentage Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Find X% of Y, percentage change and more</p></a>
+        <a href="/calculators/period-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Period Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Estimate next period and fertile window</p></a>
+        <a href="/calculators/pregnancy-due-date-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Pregnancy Due Date</div><p class="text-[11px] text-slate-500 mt-0.5">Estimate due date from last period</p></a>
+        <a href="/calculators/date-difference-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Date Difference</div><p class="text-[11px] text-slate-500 mt-0.5">Find days between two dates</p></a>
+        <a href="/calculators/irctc-60-days-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">IRCTC 60 Days</div><p class="text-[11px] text-slate-500 mt-0.5">Find booking date for train tickets</p></a>
+        <a href="/calculators/compound-interest-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Compound Interest</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate compound interest with flexible compounding</p></a>
+        <a href="/calculators/ppf-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">PPF Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Public Provident Fund maturity and interest</p></a>
+        <a href="/calculators/gratuity-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Gratuity Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate gratuity based on salary and tenure</p></a>
+        <a href="/calculators/hra-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">HRA Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Find HRA exemption for tax saving</p></a>
+        <a href="/calculators/salary-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Salary Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">CTC to in-hand salary breakdown</p></a>
+        <a href="/calculators/income-tax-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Income Tax Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate tax under Old and New regime</p></a>
+        <a href="/calculators/simple-interest-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Simple Interest</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate simple interest on any amount</p></a>
+        <a href="/calculators/cagr-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">CAGR Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Compound annual growth rate</p></a>
+        <a href="/calculators/discount-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Discount Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Find discount amount and final price</p></a>
+        <a href="/calculators/profit-loss-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Profit & Loss</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate profit or loss percentage</p></a>
+        <a href="/calculators/roi-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">ROI Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Return on Investment calculator</p></a>
+        <a href="/calculators/bmr-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">BMR Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Basal Metabolic Rate and daily calories</p></a>
+        <a href="/calculators/area-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Area Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate area of any shape</p></a>
+        <a href="/calculators/speed-distance-time-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Speed Distance Time</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate speed, distance or time</p></a>
+        <a href="/calculators/fuel-cost-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Fuel Cost Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate fuel cost for any trip</p></a>
+        <a href="/calculators/average-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Average Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Find mean, median and mode</p></a>
+        <a href="/calculators/tip-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Tip Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate tip and split the bill</p></a>
+        <a href="/calculators/number-to-words.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Number to Words</div><p class="text-[11px] text-slate-500 mt-0.5">Convert numbers to words for cheques</p></a>
+        <a href="/calculators/electricity-cost-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Electricity Cost</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate electricity usage cost</p></a>
+        <a href="/calculators/unit-converter.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Unit Converter</div><p class="text-[11px] text-slate-500 mt-0.5">Convert length, weight, temperature</p></a>
+        <a href="/calculators/time-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Time Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Add or subtract hours and minutes</p></a>
+        <a href="/calculators/inflation-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Inflation Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate future value after inflation</p></a>
+        <a href="/calculators/break-even-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Break-even Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Find break-even point for business</p></a>
+        <a href="/calculators/gst-reverse-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">GST Reverse Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Find base price from GST-included amount</p></a>
+        <a href="/calculators/lumpsum-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Lumpsum Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">One-time investment future value</p></a>
+        <a href="/calculators/swp-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">SWP Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Systematic withdrawal plan calculator</p></a>
+        <a href="/calculators/salary-hike-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Salary Hike Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate new salary after hike</p></a>
+        <a href="/calculators/home-loan-eligibility.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Home Loan Eligibility</div><p class="text-[11px] text-slate-500 mt-0.5">Check how much home loan you can get</p></a>
+        <a href="/calculators/car-loan-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Car Loan Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate car loan EMI and total cost</p></a>
+        <a href="/calculators/cgpa-to-percentage.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">CGPA to Percentage</div><p class="text-[11px] text-slate-500 mt-0.5">Convert CGPA to percentage easily</p></a>
+        <a href="/calculators/marks-required-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Marks Required</div><p class="text-[11px] text-slate-500 mt-0.5">Find marks needed to pass or score target</p></a>
+        <a href="/calculators/ideal-weight-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Ideal Weight Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Find ideal body weight by height</p></a>
+        <a href="/calculators/body-fat-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Body Fat Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Estimate body fat percentage</p></a>
+        <a href="/calculators/water-intake-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Water Intake Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Daily water requirement by weight</p></a>
+        <a href="/calculators/business-days-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Business Days Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Count working days between dates</p></a>
+        <a href="/calculators/countdown-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Countdown Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Days remaining until a future date</p></a>
+        <a href="/calculators/hex-to-rgb.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Hex to RGB Converter</div><p class="text-[11px] text-slate-500 mt-0.5">Convert hex color codes to RGB</p></a>
+        <a href="/calculators/random-number-generator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Random Number Generator</div><p class="text-[11px] text-slate-500 mt-0.5">Generate random numbers in any range</p></a>
+        <a href="/calculators/quadratic-equation-solver.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Quadratic Solver</div><p class="text-[11px] text-slate-500 mt-0.5">Solve quadratic equations instantly</p></a>
+        <a href="/calculators/age-difference-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Age Difference</div><p class="text-[11px] text-slate-500 mt-0.5">Find age difference between two people</p></a>
+        <a href="/calculators/work-hour-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Work Hour Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate total work hours and pay</p></a>
+      </div>
+      <div id="cat-text-tools" class="cat-panel hidden grid gap-2 sm:grid-cols-2 md:grid-cols-3">
+        <a href="/tools/word-counter.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Word Counter</div><p class="text-[11px] text-slate-500 mt-0.5">Count words, characters, lines and paragraphs</p></a>
+        <a href="/tools/text-case-converter.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Text Case Converter</div><p class="text-[11px] text-slate-500 mt-0.5">UPPERCASE, lowercase, Title Case and more</p></a>
+        <a href="/tools/json-formatter.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">JSON Formatter</div><p class="text-[11px] text-slate-500 mt-0.5">Format and validate JSON with one click</p></a>
+        <a href="/tools/base64-converter.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Base64 Converter</div><p class="text-[11px] text-slate-500 mt-0.5">Encode and decode Base64 online</p></a>
+        <a href="/tools/url-encoder-decoder.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">URL Encoder / Decoder</div><p class="text-[11px] text-slate-500 mt-0.5">Percent-encode or decode URLs</p></a>
+        <a href="/tools/qr-generator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">QR Code Generator</div><p class="text-[11px] text-slate-500 mt-0.5">Create QR codes for links or text</p></a>
+        <a href="/tools/password-generator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Password Generator</div><p class="text-[11px] text-slate-500 mt-0.5">Generate strong random passwords</p></a>
+      </div>
+      <div id="cat-pdf-tools" class="cat-panel hidden grid gap-2 sm:grid-cols-2 md:grid-cols-3">
+        <a href="/pdf-tools/pdf-merge.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Merge PDF</div><p class="text-[11px] text-slate-500 mt-0.5">Combine multiple PDF files into one</p></a>
+        <a href="/pdf-tools/pdf-split.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Split PDF</div><p class="text-[11px] text-slate-500 mt-0.5">Extract pages from a PDF file</p></a>
+        <a href="/pdf-tools/pdf-compress.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Compress PDF</div><p class="text-[11px] text-slate-500 mt-0.5">Reduce PDF file size for sharing</p></a>
+        <a href="/pdf-tools/image-to-pdf.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Image to PDF</div><p class="text-[11px] text-slate-500 mt-0.5">Convert JPG/PNG images into a PDF</p></a>
+      </div>
+      <div id="cat-image-tools" class="cat-panel hidden grid gap-2 sm:grid-cols-2 md:grid-cols-3">
+        <a href="/image-tools/image-compressor.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Image Compressor</div><p class="text-[11px] text-slate-500 mt-0.5">Compress JPG/PNG images in browser</p></a>
+        <a href="/image-tools/image-resizer.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Image Resizer</div><p class="text-[11px] text-slate-500 mt-0.5">Resize images by width and height</p></a>
+        <a href="/image-tools/image-format-converter.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Image Format Converter</div><p class="text-[11px] text-slate-500 mt-0.5">Convert between JPG, PNG and WebP</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t mt-10">
+    <div class="max-w-5xl mx-auto px-4 py-4 text-xs text-slate-500 flex justify-between">
+      <span>&copy; <span id="year"></span> OnlineToolsHub.in</span>
+      <div class="flex gap-3">
+        <a href="/pages/privacy-policy.html" class="hover:text-blue-600">Privacy</a>
+        <a href="/pages/about.html" class="hover:text-blue-600">About</a>
+        <a href="/pages/contact.html" class="hover:text-blue-600">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Category tab switching
+    document.querySelectorAll('.cat-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.cat-tab').forEach(function(t) {
+          t.classList.remove('bg-blue-600', 'text-white');
+          t.classList.add('bg-slate-100', 'text-slate-700');
+        });
+        tab.classList.remove('bg-slate-100', 'text-slate-700');
+        tab.classList.add('bg-blue-600', 'text-white');
+        document.querySelectorAll('.cat-panel').forEach(function(p) { p.classList.add('hidden'); });
+        document.getElementById('cat-' + tab.getAttribute('data-cat')).classList.remove('hidden');
+      });
+    });
+
+    var dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    var rowCount = 0;
+    var container = document.getElementById('entriesContainer');
+
+    function formatINR(amount) {
+      var x = amount.toFixed(2);
+      var parts = x.split('.');
+      var intPart = parts[0];
+      var decPart = parts[1];
+      var lastThree = intPart.substring(intPart.length - 3);
+      var otherNumbers = intPart.substring(0, intPart.length - 3);
+      if (otherNumbers !== '' && otherNumbers !== '-') {
+        lastThree = ',' + lastThree;
+      }
+      var formatted = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ',') + lastThree;
+      return formatted + '.' + decPart;
+    }
+
+    function addRow() {
+      var dayLabel = rowCount < dayNames.length ? dayNames[rowCount] : 'Day ' + (rowCount + 1);
+      var row = document.createElement('div');
+      row.className = 'grid grid-cols-12 gap-2 mb-2 items-center entry-row';
+      row.innerHTML =
+        '<div class="col-span-2 text-xs text-slate-600">' + dayLabel + '</div>' +
+        '<div class="col-span-3"><input type="time" value="09:00" class="entry-start border rounded px-2 py-1.5 w-full text-xs"></div>' +
+        '<div class="col-span-3"><input type="time" value="17:00" class="entry-end border rounded px-2 py-1.5 w-full text-xs"></div>' +
+        '<div class="col-span-3"><input type="number" min="0" value="30" class="entry-break border rounded px-2 py-1.5 w-full text-xs" placeholder="0"></div>' +
+        '<div class="col-span-1 text-center"><button class="remove-row text-red-400 hover:text-red-600 text-lg leading-none" title="Remove">&times;</button></div>';
+      container.appendChild(row);
+      rowCount++;
+
+      row.querySelector('.remove-row').addEventListener('click', function() {
+        row.remove();
+        renumberRows();
+      });
+    }
+
+    function renumberRows() {
+      var rows = container.querySelectorAll('.entry-row');
+      rowCount = rows.length;
+      rows.forEach(function(r, i) {
+        var dayLabel = i < dayNames.length ? dayNames[i] : 'Day ' + (i + 1);
+        r.querySelector('.col-span-2').textContent = dayLabel;
+      });
+    }
+
+    // Add initial row
+    addRow();
+
+    document.getElementById('addRowBtn').addEventListener('click', addRow);
+
+    document.getElementById('clearAllBtn').addEventListener('click', function() {
+      container.innerHTML = '';
+      rowCount = 0;
+      addRow();
+      document.getElementById('workResult').innerHTML = '';
+    });
+
+    document.getElementById('calcBtn').addEventListener('click', function() {
+      var rows = container.querySelectorAll('.entry-row');
+      var rate = parseFloat(document.getElementById('hourlyRate').value) || 0;
+      var resultDiv = document.getElementById('workResult');
+      var hasRate = rate > 0;
+
+      if (rows.length === 0) {
+        resultDiv.innerHTML = '<p class="text-red-600">Please add at least one entry.</p>';
+        return;
+      }
+
+      var dailyData = [];
+      var totalRegular = 0;
+      var totalOvertime = 0;
+      var totalHours = 0;
+      var hasError = false;
+
+      rows.forEach(function(row, index) {
+        var startVal = row.querySelector('.entry-start').value;
+        var endVal = row.querySelector('.entry-end').value;
+        var breakMin = parseFloat(row.querySelector('.entry-break').value) || 0;
+        var dayLabel = index < dayNames.length ? dayNames[index] : 'Day ' + (index + 1);
+
+        if (!startVal || !endVal) {
+          hasError = true;
+          return;
+        }
+
+        var startParts = startVal.split(':');
+        var endParts = endVal.split(':');
+        var startMinutes = parseInt(startParts[0]) * 60 + parseInt(startParts[1]);
+        var endMinutes = parseInt(endParts[0]) * 60 + parseInt(endParts[1]);
+
+        var workedMinutes = endMinutes - startMinutes - breakMin;
+        if (workedMinutes < 0) workedMinutes = 0;
+
+        var workedHours = workedMinutes / 60;
+        var regularHours = Math.min(workedHours, 8);
+        var overtimeHours = Math.max(workedHours - 8, 0);
+
+        totalHours += workedHours;
+        totalRegular += regularHours;
+        totalOvertime += overtimeHours;
+
+        dailyData.push({
+          day: dayLabel,
+          start: startVal,
+          end: endVal,
+          breakMin: breakMin,
+          worked: workedHours,
+          regular: regularHours,
+          overtime: overtimeHours
+        });
+      });
+
+      if (hasError) {
+        resultDiv.innerHTML = '<p class="text-red-600">Please fill in start and end times for all entries.</p>';
+        return;
+      }
+
+      // Build results
+      var html = '<div class="bg-blue-50 rounded-lg p-4">';
+
+      // Daily breakdown table
+      html += '<p class="font-semibold mb-2">Daily Breakdown</p>';
+      html += '<div class="overflow-x-auto"><table class="w-full text-xs border-collapse">';
+      html += '<thead><tr class="bg-blue-100">';
+      html += '<th class="text-left p-2 rounded-tl">Day</th>';
+      html += '<th class="text-left p-2">Start</th>';
+      html += '<th class="text-left p-2">End</th>';
+      html += '<th class="text-right p-2">Break</th>';
+      html += '<th class="text-right p-2">Worked</th>';
+      html += '<th class="text-right p-2">Regular</th>';
+      html += '<th class="text-right p-2 rounded-tr">OT</th>';
+      html += '</tr></thead><tbody>';
+
+      dailyData.forEach(function(d) {
+        html += '<tr class="border-b border-blue-100">';
+        html += '<td class="p-2">' + d.day + '</td>';
+        html += '<td class="p-2">' + d.start + '</td>';
+        html += '<td class="p-2">' + d.end + '</td>';
+        html += '<td class="p-2 text-right">' + d.breakMin + ' min</td>';
+        html += '<td class="p-2 text-right">' + d.worked.toFixed(2) + ' hrs</td>';
+        html += '<td class="p-2 text-right">' + d.regular.toFixed(2) + ' hrs</td>';
+        html += '<td class="p-2 text-right">' + d.overtime.toFixed(2) + ' hrs</td>';
+        html += '</tr>';
+      });
+
+      html += '</tbody></table></div>';
+
+      // Weekly totals
+      html += '<hr class="my-3 border-blue-200">';
+      html += '<p class="font-semibold mb-2">Weekly Totals</p>';
+      html += '<div class="space-y-1">';
+      html += '<p>Total Hours Worked: <strong>' + totalHours.toFixed(2) + ' hrs</strong></p>';
+      html += '<p>Regular Hours: <strong>' + totalRegular.toFixed(2) + ' hrs</strong></p>';
+      html += '<p>Overtime Hours: <strong>' + totalOvertime.toFixed(2) + ' hrs</strong></p>';
+
+      if (hasRate) {
+        var regularPay = totalRegular * rate;
+        var overtimePay = totalOvertime * rate * 1.5;
+        var totalPay = regularPay + overtimePay;
+
+        html += '<hr class="my-3 border-blue-200">';
+        html += '<p class="font-semibold mb-2">Pay Summary</p>';
+        html += '<p>Hourly Rate: <strong>&#8377;' + formatINR(rate) + '</strong></p>';
+        html += '<p>Regular Pay: <strong>&#8377;' + formatINR(regularPay) + '</strong></p>';
+        html += '<p>Overtime Pay (1.5x): <strong>&#8377;' + formatINR(overtimePay) + '</strong></p>';
+        html += '<p class="text-base mt-1">Total Pay: <strong class="text-blue-700">&#8377;' + formatINR(totalPay) + '</strong></p>';
+      }
+
+      html += '</div></div>';
+      resultDiv.innerHTML = html;
+    });
+  </script>
+
+</body>
+
+</html>

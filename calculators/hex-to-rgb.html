@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7993013934848254"
+     crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLT2CG7JZ8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-BLT2CG7JZ8');
+  </script>
+  <meta charset="UTF-8">
+  <title>Hex to RGB Converter - Color Code Converter | OnlineToolsHub</title>
+  <meta name="description" content="Convert hex color codes to RGB and RGB to hex instantly. View color preview, HSL values and copy results with one click.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://onlinetoolshub.in/calculators/hex-to-rgb.html">
+  <meta property="og:title" content="Hex to RGB Converter - Color Code Converter | OnlineToolsHub">
+  <meta property="og:description" content="Convert hex color codes to RGB and RGB to hex instantly. View color preview, HSL values and copy results with one click.">
+  <meta property="og:url" content="https://onlinetoolshub.in/calculators/hex-to-rgb.html">
+  <meta property="og:type" content="website">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+
+  <!-- Header -->
+  <header class="w-full border-b bg-white">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="/index.html" class="font-semibold text-lg">
+        Online<span class="text-blue-600">Tools</span>Hub
+      </a>
+
+      <nav class="flex gap-4 text-sm">
+        <a href="/index.html" class="hover:text-blue-600">Home</a>
+        <a href="/pages/about.html" class="hover:text-blue-600">About</a>
+        <a href="/pages/contact.html" class="hover:text-blue-600">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-2xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-semibold mb-2">Hex to RGB Converter</h1>
+    <p class="text-sm text-slate-600 mb-4">
+      Convert hex color codes to RGB and RGB to hex. Preview colors, get HSL values and copy with one click.
+    </p>
+
+    <div class="my-4">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-7993013934848254"
+           data-ad-slot="8309938384"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="bg-white rounded-lg shadow p-4 mb-6">
+      <!-- Mode Toggle -->
+      <div class="flex gap-2 mb-4">
+        <button id="modeHexToRgb" class="px-4 py-2 text-sm rounded font-medium bg-blue-600 text-white">Hex to RGB</button>
+        <button id="modeRgbToHex" class="px-4 py-2 text-sm rounded font-medium bg-slate-100 text-slate-700 hover:bg-slate-200">RGB to Hex</button>
+      </div>
+
+      <!-- Hex Input -->
+      <div id="hexInputSection">
+        <label class="block text-sm mb-1">Hex Color Code</label>
+        <input id="hexInput" type="text" maxlength="7" class="border rounded px-3 py-2 w-full mb-3 text-sm font-mono" placeholder="#FF5733 or FF5733 or FFF">
+      </div>
+
+      <!-- RGB Input -->
+      <div id="rgbInputSection" class="hidden">
+        <div class="grid grid-cols-3 gap-3 mb-3">
+          <div>
+            <label class="block text-sm mb-1">R (0-255)</label>
+            <input id="rInput" type="number" min="0" max="255" class="border rounded px-3 py-2 w-full text-sm" placeholder="255">
+          </div>
+          <div>
+            <label class="block text-sm mb-1">G (0-255)</label>
+            <input id="gInput" type="number" min="0" max="255" class="border rounded px-3 py-2 w-full text-sm" placeholder="87">
+          </div>
+          <div>
+            <label class="block text-sm mb-1">B (0-255)</label>
+            <input id="bInput" type="number" min="0" max="255" class="border rounded px-3 py-2 w-full text-sm" placeholder="51">
+          </div>
+        </div>
+      </div>
+
+      <!-- Color Preview -->
+      <div id="colorPreview" class="w-full h-32 rounded-lg border-2 border-slate-200 mb-4" style="background:#cccccc;"></div>
+
+      <!-- Results -->
+      <div id="colorResults" class="space-y-2">
+        <div class="flex items-center justify-between bg-slate-50 rounded px-3 py-2">
+          <span class="text-sm"><strong>Hex:</strong> <span id="resultHex" class="font-mono">#CCCCCC</span></span>
+          <button onclick="copyText('resultHex')" class="text-xs text-blue-600 hover:underline">Copy</button>
+        </div>
+        <div class="flex items-center justify-between bg-slate-50 rounded px-3 py-2">
+          <span class="text-sm"><strong>RGB:</strong> <span id="resultRgb" class="font-mono">rgb(204, 204, 204)</span></span>
+          <button onclick="copyText('resultRgb')" class="text-xs text-blue-600 hover:underline">Copy</button>
+        </div>
+        <div class="flex items-center justify-between bg-slate-50 rounded px-3 py-2">
+          <span class="text-sm"><strong>HSL:</strong> <span id="resultHsl" class="font-mono">hsl(0, 0%, 80%)</span></span>
+          <button onclick="copyText('resultHsl')" class="text-xs text-blue-600 hover:underline">Copy</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="my-4">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-7993013934848254"
+           data-ad-slot="8309938384"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="mt-6 mb-6 text-sm text-slate-700 leading-relaxed">
+      <h2 class="font-semibold text-base mt-4 mb-2">What is Hex to RGB Conversion?</h2>
+      <p>Hex to RGB conversion is the process of translating a hexadecimal color code (used in web design and CSS) into its equivalent Red, Green and Blue component values. A hex color code like #FF5733 represents a combination of red (FF = 255), green (57 = 87) and blue (33 = 51) intensity values. Web designers, developers and graphic artists frequently need to convert between these formats for different tools and platforms.</p>
+
+      <h2 class="font-semibold text-base mt-4 mb-2">How to Use This Converter</h2>
+      <p>Enter a hex color code (with or without the # symbol) in the Hex to RGB mode, or enter individual R, G and B values (0 to 255) in the RGB to Hex mode. The converter works in real time as you type. You will see an instant color preview swatch, and the equivalent values in Hex, RGB and HSL formats. Click the Copy button next to any format to copy it to your clipboard for use in your projects.</p>
+
+      <h2 class="font-semibold text-base mt-4 mb-2">Conversion Formula</h2>
+      <p>To convert hex to RGB, each pair of hex digits is converted to its decimal equivalent:</p>
+      <p><strong>R = parseInt(hex[1..2], 16)</strong></p>
+      <p><strong>G = parseInt(hex[3..4], 16)</strong></p>
+      <p><strong>B = parseInt(hex[5..6], 16)</strong></p>
+      <p>Shorthand hex codes like #FFF are expanded to #FFFFFF by doubling each digit. To convert RGB to hex, each decimal value is converted to a two-digit hexadecimal string and concatenated with a # prefix.</p>
+
+      <h2 class="font-semibold text-base mt-4 mb-2">Frequently Asked Questions</h2>
+
+      <h3 class="font-semibold text-sm mt-3 mb-1">What is a hex color code?</h3>
+      <p>A hex color code is a six-character string (preceded by #) that represents a color using hexadecimal values for red, green and blue channels. For example, #000000 is black and #FFFFFF is white.</p>
+
+      <h3 class="font-semibold text-sm mt-3 mb-1">What is the difference between RGB and HSL?</h3>
+      <p>RGB defines colors by their red, green and blue light components. HSL defines colors by Hue (0-360 degrees), Saturation (0-100%) and Lightness (0-100%). HSL is often more intuitive for adjusting color shades and tints.</p>
+
+      <h3 class="font-semibold text-sm mt-3 mb-1">Can I enter shorthand hex codes like #FFF?</h3>
+      <p>Yes. This converter automatically expands shorthand three-character hex codes. For example, #FFF becomes #FFFFFF and #F00 becomes #FF0000.</p>
+    </section>
+
+    <!-- Related -->
+    <section class="mt-8">
+      <h2 class="font-semibold mb-2 text-sm">Related tools</h2>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <a href="/calculators/random-number-generator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Random Number Generator</a>
+        <a href="/calculators/percentage-calculator.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Percentage Calculator</a>
+        <a href="/calculators/unit-converter.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Unit Converter</a>
+        <a href="/calculators/number-to-words.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Number to Words</a>
+        <a href="/tools/base64-converter.html" class="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200">Base64 Converter</a>
+      </div>
+    </section>
+
+    <!-- Explore all tools -->
+    <section class="mt-8 mb-4">
+      <h2 class="font-semibold mb-3 text-sm">Explore all tools</h2>
+      <div class="flex flex-wrap gap-2 mb-4">
+        <button class="cat-tab px-3 py-1.5 rounded-full text-xs font-medium bg-blue-600 text-white" data-cat="calculators">Calculators</button>
+        <button class="cat-tab px-3 py-1.5 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700" data-cat="text-tools">Text &amp; Dev Tools</button>
+        <button class="cat-tab px-3 py-1.5 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700" data-cat="pdf-tools">PDF Tools</button>
+        <button class="cat-tab px-3 py-1.5 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700" data-cat="image-tools">Image Tools</button>
+      </div>
+      <div id="cat-calculators" class="cat-panel grid gap-2 sm:grid-cols-2 md:grid-cols-3">
+        <a href="/calculators/age-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Age Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Find exact age in years, months and days</p></a>
+        <a href="/calculators/bmi-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">BMI Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Check Body Mass Index and weight range</p></a>
+        <a href="/calculators/loan-emi-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Loan EMI Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Monthly EMI for home, car or personal loan</p></a>
+        <a href="/calculators/sip-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">SIP Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Estimate future value of SIP investment</p></a>
+        <a href="/calculators/fd-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">FD Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Fixed Deposit maturity and interest</p></a>
+        <a href="/calculators/rd-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">RD Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Recurring Deposit maturity and interest</p></a>
+        <a href="/calculators/gst-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">GST Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Add or remove GST from any amount</p></a>
+        <a href="/calculators/percentage-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Percentage Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Find X% of Y, percentage change and more</p></a>
+        <a href="/calculators/period-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Period Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Estimate next period and fertile window</p></a>
+        <a href="/calculators/pregnancy-due-date-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Pregnancy Due Date</div><p class="text-[11px] text-slate-500 mt-0.5">Estimate due date from last period</p></a>
+        <a href="/calculators/date-difference-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Date Difference</div><p class="text-[11px] text-slate-500 mt-0.5">Find days between two dates</p></a>
+        <a href="/calculators/irctc-60-days-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">IRCTC 60 Days</div><p class="text-[11px] text-slate-500 mt-0.5">Find booking date for train tickets</p></a>
+        <a href="/calculators/compound-interest-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Compound Interest</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate compound interest with flexible compounding</p></a>
+        <a href="/calculators/ppf-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">PPF Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Public Provident Fund maturity and interest</p></a>
+        <a href="/calculators/gratuity-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Gratuity Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate gratuity based on salary and tenure</p></a>
+        <a href="/calculators/hra-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">HRA Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Find HRA exemption for tax saving</p></a>
+        <a href="/calculators/salary-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Salary Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">CTC to in-hand salary breakdown</p></a>
+        <a href="/calculators/income-tax-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Income Tax Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate tax under Old and New regime</p></a>
+        <a href="/calculators/simple-interest-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Simple Interest</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate simple interest on any amount</p></a>
+        <a href="/calculators/cagr-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">CAGR Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Compound annual growth rate</p></a>
+        <a href="/calculators/discount-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Discount Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Find discount amount and final price</p></a>
+        <a href="/calculators/profit-loss-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Profit & Loss</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate profit or loss percentage</p></a>
+        <a href="/calculators/roi-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">ROI Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Return on Investment calculator</p></a>
+        <a href="/calculators/bmr-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">BMR Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Basal Metabolic Rate and daily calories</p></a>
+        <a href="/calculators/area-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Area Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate area of any shape</p></a>
+        <a href="/calculators/speed-distance-time-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Speed Distance Time</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate speed, distance or time</p></a>
+        <a href="/calculators/fuel-cost-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Fuel Cost Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate fuel cost for any trip</p></a>
+        <a href="/calculators/average-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Average Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Find mean, median and mode</p></a>
+        <a href="/calculators/tip-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Tip Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate tip and split the bill</p></a>
+        <a href="/calculators/number-to-words.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Number to Words</div><p class="text-[11px] text-slate-500 mt-0.5">Convert numbers to words for cheques</p></a>
+        <a href="/calculators/electricity-cost-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Electricity Cost</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate electricity usage cost</p></a>
+        <a href="/calculators/unit-converter.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Unit Converter</div><p class="text-[11px] text-slate-500 mt-0.5">Convert length, weight, temperature</p></a>
+        <a href="/calculators/time-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Time Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Add or subtract hours and minutes</p></a>
+        <a href="/calculators/inflation-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Inflation Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate future value after inflation</p></a>
+        <a href="/calculators/break-even-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Break-even Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Find break-even point for business</p></a>
+        <a href="/calculators/gst-reverse-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">GST Reverse Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Find base price from GST-included amount</p></a>
+        <a href="/calculators/lumpsum-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Lumpsum Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">One-time investment future value</p></a>
+        <a href="/calculators/swp-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">SWP Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Systematic withdrawal plan calculator</p></a>
+        <a href="/calculators/salary-hike-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Salary Hike Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate new salary after hike</p></a>
+        <a href="/calculators/home-loan-eligibility.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Home Loan Eligibility</div><p class="text-[11px] text-slate-500 mt-0.5">Check how much home loan you can get</p></a>
+        <a href="/calculators/car-loan-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Car Loan Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate car loan EMI and total cost</p></a>
+        <a href="/calculators/cgpa-to-percentage.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">CGPA to Percentage</div><p class="text-[11px] text-slate-500 mt-0.5">Convert CGPA to percentage easily</p></a>
+        <a href="/calculators/marks-required-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Marks Required</div><p class="text-[11px] text-slate-500 mt-0.5">Find marks needed to pass or score target</p></a>
+        <a href="/calculators/ideal-weight-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Ideal Weight Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Find ideal body weight by height</p></a>
+        <a href="/calculators/body-fat-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Body Fat Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Estimate body fat percentage</p></a>
+        <a href="/calculators/water-intake-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Water Intake Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Daily water requirement by weight</p></a>
+        <a href="/calculators/business-days-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Business Days Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Count working days between dates</p></a>
+        <a href="/calculators/countdown-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Countdown Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Days remaining until a future date</p></a>
+        <a href="/calculators/hex-to-rgb.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Hex to RGB Converter</div><p class="text-[11px] text-slate-500 mt-0.5">Convert hex color codes to RGB</p></a>
+        <a href="/calculators/random-number-generator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Random Number Generator</div><p class="text-[11px] text-slate-500 mt-0.5">Generate random numbers in any range</p></a>
+        <a href="/calculators/quadratic-equation-solver.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Quadratic Solver</div><p class="text-[11px] text-slate-500 mt-0.5">Solve quadratic equations instantly</p></a>
+        <a href="/calculators/age-difference-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Age Difference</div><p class="text-[11px] text-slate-500 mt-0.5">Find age difference between two people</p></a>
+        <a href="/calculators/work-hour-calculator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Work Hour Calculator</div><p class="text-[11px] text-slate-500 mt-0.5">Calculate total work hours and pay</p></a>
+      </div>
+      <div id="cat-text-tools" class="cat-panel hidden grid gap-2 sm:grid-cols-2 md:grid-cols-3">
+        <a href="/tools/word-counter.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Word Counter</div><p class="text-[11px] text-slate-500 mt-0.5">Count words, characters, lines and paragraphs</p></a>
+        <a href="/tools/text-case-converter.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Text Case Converter</div><p class="text-[11px] text-slate-500 mt-0.5">UPPERCASE, lowercase, Title Case and more</p></a>
+        <a href="/tools/json-formatter.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">JSON Formatter</div><p class="text-[11px] text-slate-500 mt-0.5">Format and validate JSON with one click</p></a>
+        <a href="/tools/base64-converter.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Base64 Converter</div><p class="text-[11px] text-slate-500 mt-0.5">Encode and decode Base64 online</p></a>
+        <a href="/tools/url-encoder-decoder.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">URL Encoder / Decoder</div><p class="text-[11px] text-slate-500 mt-0.5">Percent-encode or decode URLs</p></a>
+        <a href="/tools/qr-generator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">QR Code Generator</div><p class="text-[11px] text-slate-500 mt-0.5">Create QR codes for links or text</p></a>
+        <a href="/tools/password-generator.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Password Generator</div><p class="text-[11px] text-slate-500 mt-0.5">Generate strong random passwords</p></a>
+      </div>
+      <div id="cat-pdf-tools" class="cat-panel hidden grid gap-2 sm:grid-cols-2 md:grid-cols-3">
+        <a href="/pdf-tools/pdf-merge.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Merge PDF</div><p class="text-[11px] text-slate-500 mt-0.5">Combine multiple PDF files into one</p></a>
+        <a href="/pdf-tools/pdf-split.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Split PDF</div><p class="text-[11px] text-slate-500 mt-0.5">Extract pages from a PDF file</p></a>
+        <a href="/pdf-tools/pdf-compress.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Compress PDF</div><p class="text-[11px] text-slate-500 mt-0.5">Reduce PDF file size for sharing</p></a>
+        <a href="/pdf-tools/image-to-pdf.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Image to PDF</div><p class="text-[11px] text-slate-500 mt-0.5">Convert JPG/PNG images into a PDF</p></a>
+      </div>
+      <div id="cat-image-tools" class="cat-panel hidden grid gap-2 sm:grid-cols-2 md:grid-cols-3">
+        <a href="/image-tools/image-compressor.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Image Compressor</div><p class="text-[11px] text-slate-500 mt-0.5">Compress JPG/PNG images in browser</p></a>
+        <a href="/image-tools/image-resizer.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Image Resizer</div><p class="text-[11px] text-slate-500 mt-0.5">Resize images by width and height</p></a>
+        <a href="/image-tools/image-format-converter.html" class="block p-3 rounded-lg bg-white shadow-sm hover:shadow transition"><div class="font-medium text-xs">Image Format Converter</div><p class="text-[11px] text-slate-500 mt-0.5">Convert between JPG, PNG and WebP</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t mt-10">
+    <div class="max-w-5xl mx-auto px-4 py-4 text-xs text-slate-500 flex justify-between">
+      <span>&copy; <span id="year"></span> OnlineToolsHub.in</span>
+      <div class="flex gap-3">
+        <a href="/pages/privacy-policy.html" class="hover:text-blue-600">Privacy</a>
+        <a href="/pages/about.html" class="hover:text-blue-600">About</a>
+        <a href="/pages/contact.html" class="hover:text-blue-600">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Category tab switching
+    document.querySelectorAll('.cat-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.cat-tab').forEach(function(t) {
+          t.classList.remove('bg-blue-600', 'text-white');
+          t.classList.add('bg-slate-100', 'text-slate-700');
+        });
+        tab.classList.remove('bg-slate-100', 'text-slate-700');
+        tab.classList.add('bg-blue-600', 'text-white');
+        document.querySelectorAll('.cat-panel').forEach(function(p) { p.classList.add('hidden'); });
+        document.getElementById('cat-' + tab.getAttribute('data-cat')).classList.remove('hidden');
+      });
+    });
+
+    // Mode switching
+    var currentMode = 'hex';
+    var modeHexBtn = document.getElementById('modeHexToRgb');
+    var modeRgbBtn = document.getElementById('modeRgbToHex');
+    var hexSection = document.getElementById('hexInputSection');
+    var rgbSection = document.getElementById('rgbInputSection');
+
+    modeHexBtn.addEventListener('click', function() {
+      currentMode = 'hex';
+      modeHexBtn.className = 'px-4 py-2 text-sm rounded font-medium bg-blue-600 text-white';
+      modeRgbBtn.className = 'px-4 py-2 text-sm rounded font-medium bg-slate-100 text-slate-700 hover:bg-slate-200';
+      hexSection.classList.remove('hidden');
+      rgbSection.classList.add('hidden');
+    });
+
+    modeRgbBtn.addEventListener('click', function() {
+      currentMode = 'rgb';
+      modeRgbBtn.className = 'px-4 py-2 text-sm rounded font-medium bg-blue-600 text-white';
+      modeHexBtn.className = 'px-4 py-2 text-sm rounded font-medium bg-slate-100 text-slate-700 hover:bg-slate-200';
+      rgbSection.classList.remove('hidden');
+      hexSection.classList.add('hidden');
+    });
+
+    function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+
+    function rgbToHsl(r, g, b) {
+      r /= 255; g /= 255; b /= 255;
+      var max = Math.max(r, g, b), min = Math.min(r, g, b);
+      var h, s, l = (max + min) / 2;
+      if (max === min) {
+        h = s = 0;
+      } else {
+        var d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+          case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+          case g: h = ((b - r) / d + 2) / 6; break;
+          case b: h = ((r - g) / d + 4) / 6; break;
+        }
+      }
+      return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
+    }
+
+    function expandHex(hex) {
+      hex = hex.replace('#', '').trim();
+      if (hex.length === 3) {
+        hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+      }
+      return hex.toUpperCase();
+    }
+
+    function updateDisplay(r, g, b) {
+      var hex = '#' + ('0' + r.toString(16)).slice(-2).toUpperCase() +
+                ('0' + g.toString(16)).slice(-2).toUpperCase() +
+                ('0' + b.toString(16)).slice(-2).toUpperCase();
+      var hsl = rgbToHsl(r, g, b);
+
+      document.getElementById('colorPreview').style.background = hex;
+      document.getElementById('resultHex').textContent = hex;
+      document.getElementById('resultRgb').textContent = 'rgb(' + r + ', ' + g + ', ' + b + ')';
+      document.getElementById('resultHsl').textContent = 'hsl(' + hsl[0] + ', ' + hsl[1] + '%, ' + hsl[2] + '%)';
+    }
+
+    // Auto-convert on hex input
+    document.getElementById('hexInput').addEventListener('input', function() {
+      var hex = expandHex(this.value);
+      if (hex.length === 6 && /^[0-9A-F]{6}$/i.test(hex)) {
+        var r = parseInt(hex.substring(0, 2), 16);
+        var g = parseInt(hex.substring(2, 4), 16);
+        var b = parseInt(hex.substring(4, 6), 16);
+        updateDisplay(r, g, b);
+      }
+    });
+
+    // Auto-convert on RGB input
+    ['rInput', 'gInput', 'bInput'].forEach(function(id) {
+      document.getElementById(id).addEventListener('input', function() {
+        var r = clamp(parseInt(document.getElementById('rInput').value) || 0, 0, 255);
+        var g = clamp(parseInt(document.getElementById('gInput').value) || 0, 0, 255);
+        var b = clamp(parseInt(document.getElementById('bInput').value) || 0, 0, 255);
+        updateDisplay(r, g, b);
+      });
+    });
+
+    function copyText(spanId) {
+      var text = document.getElementById(spanId).textContent;
+      navigator.clipboard.writeText(text).then(function() {
+        var btn = document.getElementById(spanId).closest('.flex').querySelector('button');
+        var orig = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(function() { btn.textContent = orig; }, 1500);
+      });
+    }
+  </script>
+
+</body>
+
+</html>
